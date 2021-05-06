@@ -1,0 +1,163 @@
+{% load static %}
+<html>
+    <head>
+        <title>Join Us | AceMarketing</title>
+        <link rel="stylesheet" href="{% static 'marketing/css/joinus.css' %}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&family=Nosifer&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/784b66feb8.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+
+        <main>
+            <div class="top-sav"></div>
+            <div class="bottom-sav"></div>  
+            
+            <div class="joinus-modal">
+                <div class="brand">
+                    <h4>AceMarketing</h4>
+                </div>
+                <div class="modal-and-form">
+                    <div class="modal">
+                        <h5 class="brand-adv-text">
+                            #1 Digital Marketing Solution For Small Enterprises, Startups , Multi National Company's,
+                            Local Business, and For EveryOne Who runs Business.
+                        </h5>
+                        <div class="modal-img">
+                            <img src="{% static 'marketing/images/data.svg' %}" alt="modal-img" class="modal-image">
+                        </div>
+                    </div>
+                    <div class="sginup-signin-fomrs">
+
+                        <div class="sign-up-sign-in-form">
+
+                            <div id="loader">
+                                <div class="sk-chase">
+                                  <div class="sk-chase-dot"></div>
+                                  <div class="sk-chase-dot"></div>
+                                  <div class="sk-chase-dot"></div>
+                                  <div class="sk-chase-dot"></div>
+                                  <div class="sk-chase-dot"></div>
+                                  <div class="sk-chase-dot"></div>
+                                </div>
+                            </div>
+
+
+                            <div class="sig-in-up-toggler">
+                                <button class="sign-btn active-btn" id="sign-up-toggle-btn">SignUp</button>
+                                <button class="sign-btn" id="sign-in-toggle-btn">SignIn</button>
+                            </div>
+
+                            <div class="signup-form" id="signupform">
+                                <form class="sign-form sign-up" method="POST">
+                                    {% csrf_token %}
+                                    <div class="two-field-area">
+                                        <div class="input-area">
+                                            <label for="first-name">First Name</label><br/>
+                                            <input type="text" class="input-field" id="first-name" />
+                                            <span class="err-msg" id="err-fname"></span>
+                                        </div>
+                                        <div class="input-area">
+                                            <label for="first-name">Last Name</label><br/>
+                                            <input type="text" class="input-field"  id="last-name" />
+                                            <span class="err-msg" id="err-lname"></span>
+                                        </div>
+                                    </div>
+                                    <div class="input-area">
+                                        <label for="first-name">Email</label><br/>
+                                        <input type="email" class="input-field"  id="email" />
+                                        <span class="err-msg" id="err-email"></span>
+                                    </div>
+                                    <div class="phone-number-area">
+                                        <label for="first-name">Phone Number</label><br/>
+                                        <div class="input-area phone-area">
+                                            <div class="country-info">
+                                                <img src="{% static 'marketing/images/uk.svg' %}" alt="" class="country-flag">
+                                                <h4 class="country-code">+44</h4>
+                                            </div>
+                                            <input type="tel" class="input-field" placeholder="7447  963258" id="phone-number" />
+                                            <span class="err-msg" id="err-phno"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-area">
+                                        <label for="first-name">Password</label><br/>
+                                        <input type="password" class="input-field"  id="password" /><br />
+                                        
+                                    </div>
+                                    <div class="progress">
+                                        <div id="password-strength" 
+                                            class="progress-bar" 
+                                            role="progressbar" 
+                                            aria-valuenow="40" 
+                                            aria-valuemin="0" 
+                                            aria-valuemax="100" 
+                                            style="width:0%">
+                                        </div>
+                                    </div>
+
+                                    <ul class="password-constraints">
+                                        <li class="password-contraint" id="eightChar">
+                                            <i class="far fa-circle" ></i> Alteast 8 Character long
+                                        </li>
+                                        <li class="password-contraint" id="specialChar">
+                                            <i class="far fa-circle" ></i> Special Character (!@#$%^&*)
+                                        </li>
+                                        <li class="password-contraint" id="digits">
+                                            <i class="far fa-circle" ></i> Numbers (0-9)
+                                        </li>
+                                        <li class="password-contraint" id="lowUpperCase">
+                                            <i class="far fa-circle" ></i> Lowercase & Uppercase
+                                        </li>
+                                    </ul>
+
+                                    <button class="submit-btn" id="signup-btn">SignUp</button>
+                                </form>
+                            </div>
+                            <div class="signin-form hide-signin " id="signinform">
+                                <form class="sign-form sign-up" method="POST">
+                                    <span class="err-msg" id="err-sinmessage" style="
+                                    top: -64px;
+                                    font-size: 1.2rem;
+                                    text-align: center;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    transition: all 0.6s ease-in-out;
+                                    "></span>
+                                    <div class="input-area">
+                                        <label for="first-name">Email</label><br/>
+                                        <input type="email" class="input-field"  id="sinemail" />
+                                    </div>
+                            
+                                    <div class="input-area">
+                                        <label for="first-name">Password</label><br/>
+                                        <input type="password" class="input-field"  id="sinpassword" /><br />
+                                    </div>
+
+                                    <button class="submit-btn" id="signin-btn">SignIn</button>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="success-modal-signup">
+                        <img src="{% static 'marketing/images/high-five.svg' %}" alt="high-five" class="high-five">
+                        <div class="msg-and-btn">
+                            <span>Your Account has Been  Created Successfully, Please Login with Your Credentails.</span>
+                            <br/><button class="ok-btn" id="okbtn">Ok</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'marketing/js/joinus.js' %}"></script>
+    </body>
+
+
+
+
+</html>

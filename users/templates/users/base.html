@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'users\base.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Orelega+One&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/784b66feb8.js" crossorigin="anonymous"></script>
+    {% block links %}{% endblock %}
+</head>
+<body>
+    <section>
+        <nav>
+            <div class="side-nav">
+                <button class="logo-btn"><i class="fab fa-instagram"></i></button>
+                <div class="navlinks-area">
+                    <div class="nav-link-area upper-area">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="{% url 'dashboard' %}">
+                                    <button class="nav-item-btn active-btn"> 
+                                        <i class="fa fa-home"></i>
+                                    </button>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{% url 'leads' %}">
+                                    <button class="nav-item-btn"> 
+                                        <i class="fa fa-list-alt"></i>
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-link-area lower-area">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="#">
+                                    <img src="{{ request.user.avatar.url }}" class="user-avatar" alt="user-img">
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#">
+                                    <button class="nav-item-btn"> 
+                                        <i class="fa fa-sign-out-alt"></i>
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </nav>
+    </section>
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,122 @@
+{% load static %}
+<html>
+    <head>
+        <title>Add Goals For Bussines | AceMarketing</title>
+        <link rel="stylesheet" href="{% static 'business/css/goals.css' %}" />
+        <link rel="stylesheet" href="{% static 'marketing/css/loader.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&family=Nosifer&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/784b66feb8.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="loader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+        </div>
+        <div class="proxy-bakc"></div>
+        <main>
+        <div class="goal-modal">
+            <div class="goal-adv">
+                <h4>Choose Your Goals, What you want to achieve ?</h4>
+                <ul class="gaols-need">
+                    <li class="goal-need"><i class="fas fa-circle"></i>   choosing goal helps us to design a marketing System for your business by considering your goals.</li>
+                    <li class="goal-need"><i class="fas fa-circle"></i>   if you cant figure what goals will be good for your business then, simply skip this part and head to next process.</li>
+                    <li class="goal-need"><i class="fas fa-circle"></i>   We will design a marketing System for you without choosing your goals.</li>
+                    <li class="goal-need"><i class="fas fa-circle"></i>   Choosing Goals just helps us to know what you want by this marketing system and also your thoughts  which matters us most.</li>
+                    <li class="goal-need"><i class="fas fa-circle"></i>   Here are only few Goals displayed, but you can add your custom goals any time from your dashboard.</li>
+                </ul>
+                <span class="select-goal-txt">Select a Goal by Simply Tapping on specific goal area.</span>
+            </div>
+            <div class="goal-modal-illustration">
+                <img src="{% static 'marketing/images/lauch.svg' %}" alt="">
+            </div>
+        </div>
+ 
+        <div class="goals">
+            <div class="goal">
+                <div class="goal-illustration">
+                    <img src="{% static 'marketing/images/data.svg' %}" alt="">
+                </div>
+                <div class="goal-area">
+                    {% csrf_token %}
+                    <input type="text" value="Get Phone Calls & Phone numbers, and Email, etc" hidden>
+                    <div class="goal-info">
+                        <h4 class="gaol-name">Get Phone Calls & Phone numbers, and Email, etc</h4>
+                        <span>Get Customer calls withs ads that feature your phone number.<br>
+                        Also get customer details like email, phone number etc to target them and making them your next paying customer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="goal">
+                <div class="goal-illustration">
+                    <img src="{% static 'marketing/images/data.svg' %}" alt="">
+                </div>
+                <div class="goal-area">
+                    <input type="text" value="Web Traffic" hidden>
+                    <div class="goal-info">
+                        <h4 class="gaol-name">Web Traffic</h4>
+                        <span>
+                            Grow your Online Business by Driving traffic to your website and increase your Sales, Regestrations , Booking, Conversions, Signups and Lot more by digital marketing stratgies  that direct people to your Website.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="goal">
+                <div class="goal-illustration">
+                    <img src="{% static 'marketing/images/data.svg' %}" alt="">
+                </div>
+                <div class="goal-area">
+                    <input type="text" value="Local Store Visits" hidden>
+                    <div class="goal-info">
+                        <h4 class="gaol-name">Local Store Visits</h4>
+                        <span>Grow your Business Locally by getting customer to your door by digital marketing stratgies  that helps customer find your Company
+                            on the maps and whenever they are close to your company.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="goal">
+                <div class="goal-illustration">
+                    <img src="{% static 'marketing/images/data.svg' %}" alt="">
+                </div>
+                <div class="goal-area">
+                    <input type="text" value="Email & SMS Marketing" hidden>
+                    <div class="goal-info">
+                        <h4 class="gaol-name">Email & SMS Marketing</h4>
+                        <span>Retargetting your Existing customers or Sending info about your latest Offers, Sales, Special Events and more by Email and SMS Marketing.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="goal">
+                <div class="goal-illustration">
+                    <img src="{% static 'marketing/images/data.svg' %}" alt="">
+                </div>
+                <div class="goal-area">
+                    <input type="text" value="Brand Awarness & Reach" hidden>
+                    <div class="goal-info">
+                        <h4 class="gaol-name">Brand Awarness & Reach</h4>
+                        <span>Make your Brand or any movement Eye Catching  and get Huge Reach and great awarness of your brand.Good , New Business , Startups, Social Services, Politicians , and more.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-pane">
+            <div class="actions">
+                <button class="action-btn skip">SKIP</button>
+                <button class="action-btn " id="next">NEXT</button>
+            </div>
+        </div>
+    </main>
+    <script src="{% static 'business/js/goals.js' %}" ></script>
+    </body>
+</html>

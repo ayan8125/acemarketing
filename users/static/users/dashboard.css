@@ -1,0 +1,114 @@
+.main {
+  display: flex;
+}
+.top-area {
+  margin: 1rem;
+}
+
+.dashboard-txt {
+  font-weight: bold;
+  font-family: "Roboto Slab", serif;
+}
+.date-t {
+  font-family: "Orelega One", cursive;
+  color: lightgrey;
+  margin-top: -0.7rem;
+  margin-left: 0.2rem;
+}
+
+.main-body {
+  width: 75%;
+  margin: 1rem 0.5rem;
+}
+.right-side-nav {
+  margin-right: -0.15rem;
+  width: 25%;
+  height: 100%;
+  background: #000;
+  border-radius: 2rem 0 0 2rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+.users-charts {
+  border-radius: 2rem;
+  display: flex;
+  background: #fff;
+  box-shadow: 0 0 1rem #071f38;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-chart {
+  margin: 1rem;
+  width: 25%;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  border-radius: 1rem;
+}
+
+.reach-clicks-info {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.mini-campaign-info {
+  width: 21%;
+  margin: 2rem auto;
+  background: #fff;
+  box-shadow: 0 0 1rem #071f38;
+  border-radius: 1rem;
+  padding: 1rem auto;
+}
+
+.camp-platform {
+  margin: 1rem auto;
+}
+
+.platform_avatar {
+  width: 5rem;
+  height: 5rem;
+  border: 100%;
+}
+
+.camp-platform {
+  text-align: center;
+  cursor: pointer;
+}
+
+.camp-mini-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.info-value {
+  font-family: "Krona One", sans-serif;
+}
+
+.click-value {
+  color: forestgreen;
+}
+
+.reach-value {
+  color: crimson;
+}
+
+.info-abt {
+  font-family: "Orelega One", cursive;
+  font-size: 1rem;
+  margin-top: -1rem;
+}
+
+.finalstat {
+  text-align: center;
+}
+
+/* 
+
+font-family: 'Krona One', sans-serif;
+font-family: 'Orelega One', cursive;
+font-family: 'Roboto Slab', serif;
+
+ */

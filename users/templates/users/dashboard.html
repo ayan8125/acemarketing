@@ -1,0 +1,38 @@
+{% extends 'users\base.html' %}
+{% load static %}
+
+{% block title %}
+    Dashboad | AceMarketing
+{% endblock %}
+
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'users\dashboard.css' %}" />
+{% endblock %}
+
+
+{% block main %}
+    <div class="main">
+        <div class="main-body">
+            <div class="top-area">
+                <h3 class="dashboard-txt">Dashboard</h3>
+                <h5 class="date-t" id="t-date"></h5>
+            </div>
+
+            <div class="users-charts">
+                <div class="my-chart">
+                    <canvas id="reachChart" class="chart-canvas" ></canvas>
+                </div>
+                <div class="my-chart" >
+                    <canvas id="clicksChart" class="chart-canvas"></canvas>
+                </div>
+            
+            </div>
+            <div id="camp-info-block"></div>
+        </div>
+        <div class="right-side-nav"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.0/dist/chart.min.js" integrity="sha256-ovnFmAOngtHmlhZzPyGrofexz4Kdik4kEobc8B9r1Yk=" crossorigin="anonymous"></script>
+    <script src="{% static 'users/js/dashboard.js' %}"></script>
+    
+{% endblock %}

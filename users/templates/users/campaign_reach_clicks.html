@@ -1,0 +1,21 @@
+<div class="reach-clicks-info">
+
+{% for stats in campaigns_stats %}
+    <div class="mini-campaign-info">
+        <div class="camp-platform">
+            <img src="http://localhost:8000{{stats.platform_avatar}}" class="platform_avatar" />
+        </div>
+
+        <div class="camp-mini-info" >
+            <div class="reach-area">
+                <h3 class="info-value reach-value">{{ stats.reach }}</h3>
+                <h6 class="info-abt reachs-info">Reachs</h6>
+            </div>
+            <div class="clicks-area">
+                <h3 class="info-value click-value">{{ stats.click }}</h3>
+                <h6 class="info-abt reachs-info">Clicks</h6>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>

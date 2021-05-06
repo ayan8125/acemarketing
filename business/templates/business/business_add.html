@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+    <head>
+        <title>Add YOUR Business</title>
+        <link rel="stylesheet" href="{% static 'marketing/css/loader.css' %}"></link>
+    </head>
+    
+    <body>
+        <div class="Business">
+             <div id="loader">
+                <div class="sk-chase">
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                </div>
+            </div>
+            <form method="POST" id="business-address-form">
+                {% csrf_token %}
+                {{ BusinessForm }}
+                <button class="submit-btn" >Submit</button>
+            </form>
+        </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'business/js/business_add.js' %}"></script>
+    </body>
+
+</html>

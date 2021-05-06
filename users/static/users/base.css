@@ -1,0 +1,79 @@
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4rem;
+  height: 100%;
+  background-color: #071f38;
+  border-radius: 0rem 1rem 1rem 0;
+  box-shadow: 0 0 1rem #071f38;
+}
+
+.logo-btn {
+  border: none;
+  font-size: 1.5rem;
+  background: none;
+  text-align: center;
+  margin: 1rem auto;
+  width: 100%;
+  color: #fff;
+}
+
+.navlinks-area {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 90%;
+}
+
+.nav-link-area ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 1rem 0;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.nav-item a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-item a button {
+  background: none;
+  font-size: 1.5rem;
+  color: #fff;
+  border: none;
+}
+
+.nav-item-btn {
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  border-color: 2px dashed #fff;
+}
+.active-btn {
+  background: #37c8ba;
+  box-shadow: 0 0 1rem rgba(0,0,0,1);
+  border-radius: 100%;
+  border: none;
+  padding: 0.5rem;
+}
+
+
+main {
+  margin-left: 3.9rem;
+  width: 96%;
+  height: 25rem;
+  /* background-color: #37c8ba; */
+  margin-top: -8px;
+}

@@ -1,0 +1,102 @@
+{% extends 'users\base.html' %}
+{% load static %}
+
+{% block title %}
+    Dashboad | AceMarketing
+{% endblock %}
+
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'users\dashboard.css' %}" />
+    <link rel="stylesheet" href="{% static 'users\leads.css' %}" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"> 
+{% endblock %}
+
+
+{% block main %}
+    <div class="main">
+        <div class="main-body">
+            <div class="top-area">
+                <h3 class="dashboard-txt">Dashboard</h3>
+                <h5 class="date-t" id="t-date"></h5>
+            </div>
+            {% if campaign %}
+            <div class="users-charts">
+                <div class="my-chart">
+                    <canvas id="leardsreachChart" class="chart-canvas" ></canvas>
+                </div>
+                {% if leads %}
+                <div class="my-chart" >
+                    <canvas id="leadsclicksChart" class="chart-canvas"></canvas>
+                </div>
+                {% endif %}
+                <div class="finalstat lead-reachs">
+                    <h5 class="leads-area-head">Overall Leads / Reachs</h5>
+                    <h2 class="total-leads" id="total-lead"></h2>
+                    <h4 class="total-reach" id="total-reach"></h4>
+                </div>
+            
+            </div>
+
+            <div class="leads-info">
+                {% if leads %}
+                <div class="leads-and-download">
+                    <h4 class="lead-txt">Your Leads</h4>
+                    <a href="{% url 'dowload_Xls' camapaign_Id %}" target="_blank">
+                        <button class="download-btn pdf-btn">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </a>
+                </div>
+                <table id="leads_table" class="display">
+                    <thead class="thead-a">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for lead in leads %}
+                        <tr>
+                            <td>{{ lead.first_name }} {{ lead.last_name }}</td>
+                            <td>{{lead.email }}</td>
+                            <td>{{ lead.phone_number}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr class="thead-a">
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                {% else %}
+                    <div class="no-leads">
+                        <img src="{% static 'users/images/no_data.svg' %}" class="no-data-available"  alt="no-data-avail"/>
+                        <h5 class="no-data-text">Till Now  there are no Leads for your Ads Campaigns. <br> They will we listed here Once they are Available.</h5>
+                    </div>
+                {% endif %}
+
+            </div>
+            {% else %}
+               <div class="no-leads">
+                    <img src="{% static 'users/images/taken_re.svg' %}" class="no-data-available"  alt="no-data-avail"/>
+                    <h5 class="no-data-text">You don't have any Marketing campaign Running.</h5>
+                </div>
+                
+            {% endif %}
+        
+        </div>
+        <div class="right-side-nav"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.0/dist/chart.min.js" integrity="sha256-ovnFmAOngtHmlhZzPyGrofexz4Kdik4kEobc8B9r1Yk=" crossorigin="anonymous"></script>
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="{% static 'users/js/leads.js' %}"></script>
+    
+{% endblock %}
