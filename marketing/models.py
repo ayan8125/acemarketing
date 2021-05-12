@@ -19,7 +19,7 @@ CAMPAIGN_STATUS_CHOICES = ((1, 'Running'), (2, 'Stoped'), (3, 'Terminated'))
 PLAT_FORM_TYPE = ((0, 'Serch Engine'), (1, 'SocialMedia'))
 
 class MarketingPlatform(models.Model):
-    _id = models.IntegerField(primary_key=True, auto_created=True)
+    ID = models.IntegerField(primary_key=True, auto_created=True)
     platform_type = models.IntegerField(default=1, choices=PLAT_FORM_TYPE)
     name = models.CharField(null=True, blank=True, max_length=255)
     color = models.CharField(max_length=255, default='rgba(0,0,0,1)')
@@ -31,7 +31,7 @@ class MarketingPlatform(models.Model):
 
 
 class CampaignType(models.Model):
-    _id = models.IntegerField(primary_key=True, auto_created=True)
+    ID = models.IntegerField(primary_key=True, auto_created=True)
     name = models.CharField(null=True, blank=True, max_length=255)
     description = models.TextField(null=True, blank=True)
 
@@ -40,7 +40,7 @@ class CampaignType(models.Model):
 
 # this model will act as root campaign for every campaign from diffrent platforms ex - googgle, facebook ,etc
 class CampaignRoot(models.Model):
-    _id = models.IntegerField(primary_key=True, auto_created=True)
+    ID = models.IntegerField(primary_key=True, auto_created=True)
     business = models.ForeignKey(Business, on_delete=models.CASCADE)
     status = models.IntegerField(default=1, choices=CAMPAIGN_STATUS_CHOICES)
     created_at = models.DateTimeField(default=timezone.now)
@@ -49,7 +49,7 @@ class CampaignRoot(models.Model):
         return f'{self.business} campaign'
 
 class Campaign(models.Model):
-    _id = models.IntegerField(primary_key=True, auto_created=True)
+    ID = models.IntegerField(primary_key=True, auto_created=True)
     name = models.CharField(null=True, blank=True, max_length=255)
     platform = models.ForeignKey(MarketingPlatform, on_delete=models.CASCADE)
     ctype = models.ForeignKey(CampaignType, on_delete=models.CASCADE)

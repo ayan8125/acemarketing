@@ -10,7 +10,7 @@ TRANSACTION_STATUS = ((0, 'Initiaited'), (1, 'Pending'),
 
 
 class Wallet(models.Model):
-    _id = models.IntegerField(auto_created=True, primary_key=True)
+    ID = models.IntegerField(auto_created=True, primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     currency = models.CharField(max_length=255, default='Pound sterling')
     balanceamt = models.FloatField(default=0.0)
@@ -22,10 +22,10 @@ class Wallet(models.Model):
 
 
 class transaction(models.Model):
-    _id = models.CharField(
+    ID = models.CharField(
         auto_created=True, primary_key=True, max_length=255, )
     wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE)
     amount = models.FloatField(default=0.0)
     status = models.IntegerField(default=0, choices=TRANSACTION_STATUS)
     def __str__(self):
-        return f'{self._id} - amount-added = {self.amount}'
+        return f'{self.ID} - amount-added = {self.amount}'

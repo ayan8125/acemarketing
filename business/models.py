@@ -39,6 +39,7 @@ class Business(models.Model):
 
 
 class USP(models.Model):
+    ID = models.CharField(auto_created=True, primary_key=True, max_length=255)
     description = models.TextField(blank=True, null=True)
     business = models.ForeignKey(Business, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
@@ -49,8 +50,12 @@ class USP(models.Model):
 
 
 class Goals(models.Model):
-    _id = models.IntegerField(auto_created=True, primary_key=True)
+    ID = models.CharField(auto_created=True, primary_key=True, max_length=255)
     goal = models.TextField(blank=True, null=True)
     business = models.ForeignKey(Business, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
     update_at = models.DateTimeField(default=timezone.now)
+
+
+    def __str__(self):
+        return f'{self.goal}'
