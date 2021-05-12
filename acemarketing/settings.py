@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'acemarketing.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'marketing',
-        'USER': 'postgres',
-        'PASSWORD': 'test1522314151',
-        'HOST': 'acemarketing.cmfwrhgfy4eu.eu-west-2.rds.amazonaws.com',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
     }
 }
 
