@@ -1,0 +1,14 @@
+AWS CONSOLE CREDENTIALS
+username : marketing_ayan1522
+password : 
+
+
+AWS PROGRAMMATIC ACCESS CREDENTIALS
+username: marketing_pa_ayan1522
+Access key ID: AKIA2HDGRZJZZEU7OKDQ
+Secret access key : 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
+
+
+AWS MARKETING BUCKET
+name: testmarketingbucket
+ 

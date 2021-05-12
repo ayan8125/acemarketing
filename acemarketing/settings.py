@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'storages',
     'payments',
     'business',
     'phonenumber_field',
@@ -83,16 +84,11 @@ WSGI_APPLICATION = 'acemarketing.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'acemarketing',
-        'USER': 'root',
-        'PASSWORD': 'ayan1522',
-        'HOST': 'localhost',
-        'OPTIONS': {
-            'autocommit': True,
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
-        },
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'marketing',
+        'USER': 'postgres',
+        'PASSWORD': 'test1522314151',
+        'HOST': 'acemarketing.cmfwrhgfy4eu.eu-west-2.rds.amazonaws.com',
     }
 }
 
@@ -151,5 +147,20 @@ LOGIN_URL = '/joinus/'
 
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
 STRIPE_KEY_SECRET = os.environ.get('STRIPE_KEY_SECRET')
+
+
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = 'public-read'
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
 
 DOMAIN = 'http://localhost:8000'
