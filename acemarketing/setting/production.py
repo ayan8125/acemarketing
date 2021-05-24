@@ -3,8 +3,8 @@
     
 """
 
-from acenmarketing.settings import *
-
+from acemarketing.settings import *
+import json
 with open('/etc/config.json') as config_file:
     config = json.load(config_file)
 
@@ -13,7 +13,7 @@ SECRET_KEY = config['SECRET_KEY']
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.acenmark.co.uk', 'acenmark.co.uk']
+ALLOWED_HOSTS = ['www.acenmark.co.uk', 'acenmark.co.uk','172.31.28.79']
 
 
 
