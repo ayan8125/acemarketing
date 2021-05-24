@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from business.models import Business, USP
 from django.conf import settings
@@ -7,14 +7,35 @@ from django.http import JsonResponse, HttpResponse
 from django.db.models import Sum
 from django.utils.translation import ugettext
 from .utils import *
+from django.db.models import Q
+from .forms import *
+from django.contrib.auth import get_user_model
+from django.views import View
+from users.token import token as Token
+from django.utils.encoding import force_bytes, force_text
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 # Create your views here.
+User = get_user_model() 
+leads_camp_ID = 2
 
-User = settings.AUTH_USER_MODEL
-
-
+@login_required
 def dashboard(request):
-    return render(request, 'users/dashboard.html')
+    context = {}
+    active_campaign = CampaignRoot.objects.filter(business=request.user.business, status = 1).first()
+    if active_campaign:
+        ctype = CampaignType.objects.filter(~Q(ID=leads_camp_ID))
+        camps = Campaign.objects.filter(ctype__in=ctype,campaign_root=active_campaign)
+        has_reach = Reachs.objects.filter(campaign__in=camps, no_of_reach__gte=1).exists()
+        has_clicks = Clicks.objects.filter(campaign__in=camps, no_of_clicks__gte=1).exists()
+        if len(camps) > 0:
+            context['active_camp'] = True 
+        if has_reach:
+            context['has_reach'] = True
+        if has_clicks:
+            context['has_clicks'] = True
+    context['dashboard'] = True
+    return render(request, 'users/dashboard.html', context=context)
 
 
 def campaign_reach(request):
@@ -54,8 +75,8 @@ def get_social_and_engine_reachs(request):
     data = {}
     user_business = Business.objects.get(user=request.user)
     if user_business is not None:
-        active_campaign_root = CampaignRoot.objects.get(
-            business=user_business, status=1)
+        active_campaign_root = CampaignRoot.objects.filter(
+            business=user_business, status=1).first()
         if active_campaign_root is not None:
             search_engine_platform = MarketingPlatform.objects.filter(
                 platform_type=0)
@@ -63,9 +84,9 @@ def get_social_and_engine_reachs(request):
                 platform_type=1)
 
             search_engine_platform_ads_campaign = Campaign.objects.filter(
-                campaign_root=active_campaign_root, platform__in=search_engine_platform)
+                 ~Q(ctype=leads_camp_ID), campaign_root=active_campaign_root, platform__in=search_engine_platform)
             social_media_platform_ads_campaign = Campaign.objects.filter(
-                campaign_root=active_campaign_root, platform__in=social_media_platform)
+                 ~Q(ctype=leads_camp_ID), campaign_root=active_campaign_root, platform__in=social_media_platform)
 
             serach_engine_reachs = Reachs.objects.filter(
                 campaign__in=search_engine_platform_ads_campaign).aggregate(total_reach=Sum('no_of_reach'))
@@ -80,8 +101,8 @@ def get_social_and_engine_clicks(request):
     data = {}
     user_business = Business.objects.get(user=request.user)
     if user_business is not None:
-        active_campaign_root = CampaignRoot.objects.get(
-            business=user_business, status=1)
+        active_campaign_root = CampaignRoot.objects.filter(
+            business=user_business, status=1).first()
         if active_campaign_root is not None:
             search_engine_platform = MarketingPlatform.objects.filter(
                 platform_type=0)
@@ -89,9 +110,9 @@ def get_social_and_engine_clicks(request):
                 platform_type=1)
 
             search_engine_platform_ads_campaign = Campaign.objects.filter(
-                campaign_root=active_campaign_root, platform__in=search_engine_platform)
+                ~Q(ctype=leads_camp_ID), campaign_root=active_campaign_root, platform__in=search_engine_platform)
             social_media_platform_ads_campaign = Campaign.objects.filter(
-                campaign_root=active_campaign_root, platform__in=social_media_platform)
+                ~Q(ctype=leads_camp_ID), campaign_root=active_campaign_root, platform__in=social_media_platform)
 
             serach_engine_clicks = Clicks.objects.filter(
                 campaign__in=search_engine_platform_ads_campaign).aggregate(total_clicks=Sum('no_of_clicks'))
@@ -106,11 +127,11 @@ def get_campaign_reach_clicks_info(request):
     context = {}
     user_business = Business.objects.get(user=request.user)
     if user_business is not None:
-        active_campaign_root = CampaignRoot.objects.get(
-            business=user_business, status=1)
+        active_campaign_root = CampaignRoot.objects.filter(
+            business=user_business, status=1).first()
         if active_campaign_root is not None:
             ads_campaign = Campaign.objects.filter(
-                campaign_root=active_campaign_root)
+                ~Q(ctype=leads_camp_ID), campaign_root=active_campaign_root)
             campaign_stats = []
             for campaign in ads_campaign:
                 camp_Data = {
@@ -121,21 +142,25 @@ def get_campaign_reach_clicks_info(request):
             context['campaigns_stats'] = campaign_stats
     return render(request, 'users/campaign_reach_clicks.html', context=context)
 
-
+@login_required
 def leads(request):
     context = {}
     user_bussines = Business.objects.get(user=request.user)
-    campaign_root = CampaignRoot.objects.get(business=user_bussines, status=1)
-    camtype = CampaignType.objects.get(pk=2)
+    campaign_root = CampaignRoot.objects.filter(business=user_bussines, status=1).first()
+    camtype = CampaignType.objects.get(pk=leads_camp_ID)
     campaign = Campaign.objects.filter(
         campaign_root=campaign_root, ctype=camtype)
-    if user_bussines is not None and campaign_root is not None and campaign is not None:
+    has_reachs = Reachs.objects.filter(campaign__in=campaign, no_of_reach__gte=1).exists()
+    if user_bussines is not None and campaign_root is not None and len(campaign) > 0:
         campaign_leads = Leads.objects.filter(campaign__in=campaign)
         if len(campaign_leads) > 0:
             context['leads'] = campaign_leads
-        if len(campaign) > 0:
-            context['campaign'] = campaign
-        context['camapaign_Id'] = campaign_root._id
+        if has_reachs:
+            context['has_reachs'] = True
+        context['campaign'] = campaign
+        context['camapaign_Id'] = campaign_root.ID
+
+    context['leadstab'] = True
     return render(request, 'users/leads.html', context=context)
 
 
@@ -143,8 +168,8 @@ def get_social_and_engine_leads_reach_clicks(request):
     data = {}
     user_business = Business.objects.get(user=request.user)
     if user_business is not None:
-        active_campaign_root = CampaignRoot.objects.get(
-            business=user_business, status=1)
+        active_campaign_root = CampaignRoot.objects.filter(
+            business=user_business, status=1).first()
         if active_campaign_root is not None:
             search_engine_platform = MarketingPlatform.objects.filter(
                 platform_type=0)
@@ -182,8 +207,8 @@ def dowload_Xls(request, campaignid):
     if camp_root:
         campaigns = Campaign.objects.filter(campaign_root=camp_root)
         leads = Leads.objects.filter(campaign__in=campaigns)
-        filename = f'Leads-{camp_root.business.name}-{camp_root.business.user.first_name}-{camp_root.business.user.last_name}-{camp_root.business.user.id}-{camp_root._id}.xlsx'
-        camp_name = f'{camp_root.business.name} Marketing Campaign ID - {camp_root._id}'
+        filename = f'Leads-{camp_root.business.name}-{camp_root.business.user.first_name}-{camp_root.business.user.last_name}-{camp_root.business.user.id}-{camp_root.ID}.xlsx'
+        camp_name = f'{camp_root.business.name} Marketing Campaign ID - {camp_root.ID}'
         xlsx_data = WriteToExcel(leads, camp_name)
         response = HttpResponse(
             xlsx_data,
@@ -198,3 +223,84 @@ def give_date(request):
     today_date = timezone.now()
     date_string = f'{today_date.strftime("%A")} {today_date.strftime("%d")}, {today_date.strftime("%B")} {today_date.strftime("%Y")}'
     return JsonResponse({'date': date_string})
+
+
+
+@login_required
+def Account(request):
+    return render(request, 'users/account.html')
+
+
+
+
+def EditUser(request):
+    if request.method == 'POST':
+        prev_email = request.user.email
+        prev_number = request.user.phone_number
+        data = request.POST
+        userform = UserForm(data=data, instance=request.user)
+        if userform.is_valid():
+            f = userform.save()
+            if prev_number != data['phone_number'] and request.user.is_phonenumber_verified == True:
+                f.is_phonenumber_verified = False
+            if prev_email != data['email'] and request.user.is_email_verified == True:
+                f.is_email_verified = False
+            f.save()
+            return JsonResponse({'success':1})
+        resp_data = {}
+        if prev_email != data['email']:
+            is_email_exists = User.objects.filter(email=data['email']).exists()
+            if is_email_exists:
+                resp_data['email_exists'] = True
+        if prev_number != data['phone_number']:
+            is_phone_number_exists = User.objects.filter(phone_number=data['phone_number']).exists()
+            if is_phone_number_exists:
+                resp_data['phone_number_exists'] = True
+
+
+        return JsonResponse(resp_data)
+    return None
+
+
+
+
+def EditUserAvatar(request):
+    if request.method == 'POST':
+        user_avatarform = UserAvatarForm(request.POST, request.FILES, instance=request.user)
+        if user_avatarform.is_valid():
+            user_avatarform.save()
+            return JsonResponse({'status': 'Sucess'})
+
+    return JsonResponse({'status': 'Error'})
+
+
+
+def sendVerificationLink(request):
+    uid = urlsafe_base64_encode(force_bytes(request.user.pk))
+    activation_token = Token.give_token(
+                pk=str(request.user.pk), email=request.user.email)
+
+    res = request.user.email_user(email_type='email_verification',dynamic_data={
+                'name':request.user.first_name,
+                'link':f'{settings.DOMAIN}/user/verify-email-verification/{uid}/{activation_token}/'
+                })
+    if res == 1:
+        return JsonResponse({'success':1})
+    return JsonResponse({'failure':1})
+
+
+def verifyEmail(request, uidb64, token):
+    context = {}
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+        if user and Token.check_token(user,token):
+            user.is_email_verified = True
+            user.save()
+            context['verified_email'] = 1
+        else:
+            context['invalid_link'] = 1
+    except (TypeError, ValueError, OverflowError,):
+        context['invalid_link'] = 1
+
+    return render(request, 'users/verify_email.html', context=context)

@@ -1,12 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paymeny Successfull | AceMarketing</title>
+    <title>Paymeny Successfull | AcenMark</title>
+    <link rel="stylesheet" href="{% static 'payments/css/successfull.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&family=Roboto+Slab:wght@700&family=Fredoka+One&family=Nosifer&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Payment Successfull</h1>
+
+	<main>
+		<div class="result-area">
+			<div class="result"> 
+				<div  class="result-img">
+					<img src="{% static 'payments/images/sad.svg' %}" alt="payment-cancel">
+				</div>
+				<div class="result-note">
+					<h4>
+						Your payment has been canceled. This happen mainly when you have provided invalid credentials or you dont have sufficient balance in your bank account. 
+					</h4>
+					{% if request.user.wallet.balanceamt < 60 %}
+					<h3 class="alert">
+						Please add money to your wallet to start or to avoid interuption in your marketing campaigns.
+					</h3>
+					{% endif %}
+				</div>
+				<div class="action-btn">
+					<a href="{% url 'account' %}">
+						<button>
+							Try adding money again
+						</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</main>
+    
 </body>
 </html>

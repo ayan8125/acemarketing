@@ -1,0 +1,311 @@
+
+.get-started a {
+	text-decoration: none;
+}
+
+.get-started a button {
+	border-radius: 0.5rem;
+	background: #071f38;
+	color: #fff;
+	font-family: 'Roboto Slab', serif;
+	padding: 0.5rem 1rem;
+	border: none;
+	box-shadow: 0 0 1rem #000;
+	cursor: pointer;
+}
+
+
+.section {
+display: grid;
+grid-template-columns: 50% 50%;
+grid-gap: 0.5rem;
+margin: 2rem 10%; 
+}
+
+.description-area {
+	font-family: 'fredoka One',serif;
+	color: #071f38;
+
+}
+
+.illus-area img {
+	width: 100%;
+}
+
+.started-btn {
+	background: #071f38;
+	color: #fff;
+	font-family: 'fredoka One',serif;
+	padding: 0.5rem 1rem;
+	border: none;
+	box-shadow: 0 0 1rem #000;
+	margin: 2rem auto;
+	border-radius: 0.5rem;
+	float: right;
+	cursor: pointer;
+}
+
+.idea {
+	padding: 0.5rem;
+	margin: 0.5rem auto;
+	display: flex;
+	align-items: center;
+	background: #fff;
+	box-shadow: 0 0 1rem #000;
+	margin: 1rem auto;
+	border-radius: 0.5rem;
+}
+
+.idea button {
+	background: #fff;
+	color: #071f38;
+	border-radius: 50%;
+	padding: 0.2rem 0.5rem;
+	border: none;
+	font-size: 1rem;
+	box-shadow: 0 0 1rem #000;
+	margin-right: 1rem;
+}
+
+.idea-and-desp h4{
+	font-family: 'fredoka One',serif;
+	color: #071f38;
+}
+
+.idea-and-desp span {
+	font-family: 'Roboto Slab',serif;
+	color: #071f38;
+}
+
+.various-business-illus-area {
+	position: relative;
+	overflow-x: hidden;
+}
+
+
+
+.business-modal {
+	position: absolute;
+	top: 0;
+	transition: all 0.5s ease-in-out;
+}
+.active-modal {
+	right: none;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: visible;
+    pointer-events: initial;
+}
+
+
+.prev-modal {
+	left: -200%;
+	right: none;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.next-modal {
+	left: none;
+	right: -200%;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.testimonials {
+	    background: aliceblue;
+    padding: 1rem;
+    margin: 1rem 4%;
+    border-radius: 2rem;
+}
+
+.customer-review {
+	position: relative;
+}
+
+.shape-cust {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+
+}
+
+
+.custmore-review-area {
+	position: absolute;
+}
+
+.actual-area-customer-review {
+	display: flex;
+	justify-content: center;align-items: center;
+	background: #fff;
+	border-radius: 1rem;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.customer-profile {
+	margin-right: 1rem;
+}
+
+.customer-profile img {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 100%;
+}
+
+.cuctomer-info h4 {
+	font-family: 'fredoka One',serif;
+	color: #071f38;
+
+}
+
+.cuctomer-info span {
+	font-family: 'Roboto Slab',serif;
+	color: #071f38;
+
+}
+
+.quote-btn {
+	color: #071f38;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    float: right;
+    margin: 1rem auto;
+}
+
+.contactus-section {
+	margin: 2rem 2%;
+
+}
+.get-in-touch-btn{
+	    background: #071f38;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: 'Fredoka One';
+    cursor: pointer;
+    box-shadow: 0 0 1rem #000;
+}
+
+.input-field {
+	    border: none;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    outline: none;
+    box-shadow: 0 0 1rem;
+    font-family: 'Fredoka One',serif;
+}
+
+.dots {
+	    position: absolute;
+    width: 4rem;
+    z-index: -1;
+    top: 3rem;
+}
+
+
+.get-in-touch-form{
+	display: grid;
+    grid-template-columns: 70% 30%;
+    grid-gap: 1rem;
+
+}
+
+.contactus-us-form {
+	 position: relative;
+    padding: 1rem 10%;
+    overflow-x: hidden;
+}
+
+
+.align-center {
+	    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.blur-5px {
+	filter: blur(5px);
+}
+
+
+.mini-modal {
+	position: absolute;
+	top: 0;
+	left: -300%;
+	border-radius: 1rem;
+	background: #fff;
+	box-shadow: 0 0 1rem #000;
+	transition: all 0.5s ease-in-out;
+
+}
+
+
+.show-mini-modal {
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0.5rem;
+	z-index: 1
+
+}
+
+.close-btn-mini-modal {
+	color: crimson;
+	float: right;
+	font-size: 1.2rem;
+	background: none;
+	cursor: pointer;
+	border: none;
+}
+
+.mini-mess {
+	color: #000;
+	font-family: 'Fredoka One',serif;
+}
+
+
+
+.desktop-view-area {
+	display: block;
+}
+
+.mobile-view-area {
+	display: none;
+}
+
+.mt-9rem {
+	margin-top: -9rem;
+}
+
+.mt-3rem {
+	margin-top: -3rem;
+}
+
+
+@media screen and (max-width: 600px) {
+	.desktop-view-area {
+	display: none;
+	}
+
+	.mobile-view-area {
+		display: block;
+	}
+	.section {
+		display: block;
+	}
+	.testimonials {
+    height: 43rem;
+	}
+	.align-center {
+	    display: block;
+	}
+
+}

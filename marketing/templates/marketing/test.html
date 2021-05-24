@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reset Your Password</title>
+
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&family=Roboto+Slab:wght@700&family=Fredoka+One&family=Pacifico&family=Nosifer&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/784b66feb8.js" crossorigin="anonymous"></script>
+
+        <style type="">
+        	
+        .main-area {
+     		position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            width: 70%;
+            box-shadow: 0 0 1rem #000;
+            padding: 2%;
+        }
+
+        .brand-logo-area {
+        	text-align: center;
+        }
+
+        .brand-logo {
+        	width: 5rem;
+        	height: 5rem;
+        } 
+
+        .reset-head {
+        	color: #071f38;
+        	font-family: 'Fredoka One',serif;
+
+        }
+
+        .reset-note, .alert-note {
+        	color: #071f38;
+        	font-family: 'Fredoka One',serif;
+        }
+
+        .alert-note {
+        	color: grey;
+        }
+
+        .reset-btn {
+        background: #071f38;
+        color: #fff;
+        font-family: 'Fredoka One',serif;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin: 1rem;
+        cursor: pointer;
+        }
+
+        .action-area {
+        	text-align: center;
+        }
+
+        .cheers-area h3,  .cheers-area h4 {
+        	font-family: 'Fredoka One',serif;
+        	color: #071f38
+        }
+
+         .cheers-area h4 {
+         	margin-top: 1rem;
+         }
+
+         .cheers-area h3 {
+         	margin-top: -2rem;
+         }
+
+         .user-name {
+         	font-family: 'Fredoka One',serif;
+         	color: #071f38;
+         }
+
+         @media screen and (max-width: 600px) {
+         	.main-area {
+			    width: 78%;
+
+			}
+
+         }
+
+        </style>
+
+    </head>
+
+    <body >
+        <main >
+            <div class="half-bg" style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: #071f38;
+            ">
+
+
+            	
+            </div>
+
+            <div class="main-area">
+            	<div class="brand-logo-area">
+            		<img src="/static/marketing/images/acenmark.png" class="brand-logo">
+            	</div>
+            	<div class="reset-password-area">
+            		<div style="text-align: center;">
+            			<h1 class="reset-head">Trouble In SignIn ?</h1>
+					</div>
+					<div>
+						<h3 class="user-name">Hii, Ayan</h3>
+					</div>
+            		<span class="reset-note">
+            			There is a request to change your password.Resetting password is easy.Just Press the button below.We'll have you up and running in no time
+            		</span>
+            		<div class="action-area">
+            			
+            		
+	            		<a href="{{link}}">
+	            			<button class="reset-btn">
+	            				Reset My Password
+	            			</button>
+	            		</a>
+            		</div>
+            		 <span class="alert-note">
+            			if you did not made this request, just ignore this email.
+            			Otherwise please click on the above button to change your password.
+            		</span>
+            	</div>
+
+            	<div class="cheers-area">
+            		<h4>Cheers,</h4><br/>
+            		<h3>AcenMark</h3>
+            	</div>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+  
+        
+
+    </body>
+
+
+
+
+</html>

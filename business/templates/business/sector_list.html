@@ -1,0 +1,7 @@
+{% for sector in sectors %}
+
+	<li class="sector" onclick="changesector('{{sector.ID}}', '{{sector.name}}')">
+		{{sector.name}}
+	</li>
+	<hr/>
+{% endfor %}

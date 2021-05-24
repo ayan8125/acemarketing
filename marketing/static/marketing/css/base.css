@@ -1,0 +1,312 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+
+
+.top-nav {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0.2rem 5%;
+}
+
+.brand-logo {
+	width: 5rem;
+	height: 5rem;
+}
+
+
+.nav-list {
+	display: flex;
+	list-style: none;
+}
+
+
+.nav-list li {
+	margin: 0.5rem 1.5rem;
+
+}
+
+.item-head {
+    margin-top: -3rem !important;
+    border-radius: 1rem;
+    background: #071f38;
+    color: #fff;
+    padding: 0.5rem;
+
+}
+
+
+.nav-list li a h4 {
+	font-family: 'Roboto Slab',serif;
+	color: #071f38;
+
+}
+.nav-right-area  {
+	padding: 0.5rem
+}
+
+.nav-list li a {
+	text-decoration: none;
+}
+
+
+.right-area {
+	margin-left: auto;
+}
+
+
+.get-started {
+	    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.get-started a {
+	text-decoration: none;
+}
+
+.get-started a button {
+	border-radius: 0.5rem;
+	background: #071f38;
+	color: #fff;
+	font-family: 'Roboto Slab', serif;
+	padding: 0.5rem 1rem;
+	border: none;
+	box-shadow: 0 0 1rem #000;
+	cursor: pointer;
+}
+
+.country-flag {
+     width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+
+footer {
+	margin-top: -1.4rem;
+}
+
+.footer-area {
+	background: #071f38;
+}
+
+
+.brand-name-mini{
+	    font-family: 'Pacifico';
+    color: #fff;
+}
+
+.comapny-moto-txt{
+	    font-family: 'Fredoka One';
+    color: #fff;
+}
+
+.social-media-btn {
+	    color: #fff;
+    background: none;
+    border: none;
+    margin: 1rem 0.5rem;
+    cursor: pointer;
+}
+
+.social-meida-links a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.products-list {
+	list-style: none;
+}
+
+.product {
+    font-family: 'bitter',serif;
+    color: #fff;
+    margin: 1rem;
+}
+
+
+.product a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.company-info {
+	display: flex;
+    align-items: center;
+}
+
+.company-info button {
+	border: none;
+    background: none;
+    color: #fff;
+    margin-right: 1rem;
+}
+
+
+.info {
+	    color: #fff;
+    font-family: 'bitter',serif;
+}
+
+
+.phone-info button {
+	transform: rotate(90deg);
+}
+
+.footer-area {
+	display: grid;
+	grid-template-columns: 33.3% 33.3% 33.3%;
+	padding: 1rem 2%;
+}
+
+.foo-area-name {
+	color: #fff;
+	font-family: 'Fredoka One';
+
+}
+
+.hamburger-btn {
+    background: none;
+    display: block;
+    color: #071f38;
+    border: none;
+    font-size: 1rem;
+    display: none;
+}
+
+
+.join-us-link {
+	display: block;
+}
+
+
+
+.mobile-nav {
+    position: absolute;
+    top: 0;
+    right: -200%;
+    height: 100%;
+    width: 0;
+    background: #071f38;
+    border-radius: 6rem 0 0 2rem;
+    z-index: 3;
+    box-shadow: 0 0 1rem #000;
+    transition: all 0.5s ease-in-out;
+    padding-top: 2rem;
+    overflow-x: hidden;
+}
+
+
+.show-mobile-nav {
+	right: 0;
+	width: 10rem;
+}
+
+
+.close-nav-btn {
+	color: #fff;
+	border: none;
+	outline: none;
+	background:none;
+	font-size: 1.2rem;
+	margin: 1rem;
+}
+
+
+.mobile-nav-list {
+	list-style: none;
+	 margin-left: -1rem;
+}
+
+.mobile-nav-list li {
+	cursor: pointer;
+
+}
+
+.mobile-nav-list li a {
+	text-decoration: none;
+}
+
+
+.icon-and-item {
+	display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.icon-and-item button {
+	border: none;
+    background: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.icon-and-item h4 {
+    color: #fff;
+    font-family: 'Fredoka One';
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+
+	.footer-area {
+		display: block;
+
+	}
+
+	.products-list {
+		margin-left: -2.5rem;
+	}
+
+	.foo-area {
+		margin: 3rem auto;
+	}
+	.center-area {
+		display: none;
+	}
+	.item-head {
+    margin-top: -1rem !important;
+    padding: 0.5rem;
+	}
+	.head-logo {
+    font-size: 1rem;
+	}
+	.get-started a button {
+    font-size: 0.5rem;
+	}
+	.top-nav {
+    margin: 0.2rem 2%;
+	}
+	.hamburger-btn {
+		display: block;
+	}
+	.join-us-link {
+		display: none;
+	}
+
+
+}
+
+/*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*/
+
+@media screen and (max-width: 350px){
+	.cuctomer-info span {
+    font-size: 0.8rem;
+	}
+	.brand-logo {
+	width: 3rem;
+	height: 3rem;
+	}
+
+}

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Money To Your Wallet | AceMarketing</title>
+    <title>Set Your Montly Budget | AcenMark</title>
+    <link rel="shortcut icon" type="image/icon" href="{% static 'marketing/images/favicon.ico' %}"/>
     <link rel="stylesheet" href="{% static 'payments/css/addmoney.css' %}" />
-    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&family=Nosifer&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Orelega+One&family=Roboto+Slab:wght@700&family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'marketing/css/loader.css' %}" />
     <script src="https://kit.fontawesome.com/784b66feb8.js" crossorigin="anonymous"></script>
 </head>
@@ -24,20 +25,29 @@
     </div>
     <main>
         <div class="addmoney">
-            {% if no_transaction_done %}
-
-            {% endif %}
-
+            <div class="mobile-view">
+                <h1>Set Your Monthly budget for marketing.</h1>
+            </div>
             <div class="money-add-area">
                 <div class="money-modal">
                     <div class="modal-desc">
-                        <h4>
-                            Add money to Your Ace Marketing Wallet
-                        </h4>
-                        <span>Money which you add to your wallet, <br> is used in your marketing campaigns.</span>
+                        <h1>
+                           Set Your Monthly budget for marketing.
+                        </h1>
+                        <ul class="budget-info-list">
+                            <li>
+                                <button>
+                                    <i class="fas fa-thumbtack"></i>
+                                </button>
+                                <span>
+                                We suggest that you start with 3k as your monthly budget and then  if your marketing campaings runs out of budget than we will notify you and then you can reset you budget by simply adding money to you wallet.
+                                </span>
+                            </li>
+                        </ul>
+
                     </div>
                     <div class="modal-illus">
-                        <img src="{% static 'payments/images/wallet.svg' %}" alt="wallet" class="wallet-svg">
+                        <img src="{% static 'payments/images/wallet_coin.svg' %}" alt="wallet" class="wallet-svg">
                     </div>
 
                 </div>
@@ -45,11 +55,11 @@
                     <div class="money-form-area">
                         <form class="add-money-o-Wallet" method="POST">
                             {% csrf_token %}
-                            <div class="input-field">
+                            <div class="money-field">
                                 <button><i class="fas fa-pound-sign"></i></button>
-                                <input type="text" id="money" placeholder="2000" autocomplete="off" />
+                                <input type="text" id="money" placeholder="3000" autocomplete="off" value="3000" />
                             </div>
-                            <span class="err-msg"></span>
+                            <span class="money-err-msg"></span>
                             
                             <button class="add-money-btn" id="addmoneybtn"><i class="fas fa-wallet"></i>   Add</button>
                         </form>
@@ -61,24 +71,6 @@
 
         </div>
 
-    <div class="mobile-view">
-
-        <img src="{% static 'payments/images/blob4.svg' %}" class="blob blob1" alt="graphics" />
-        <img src="{% static 'payments/images/blob4.svg' %}" class="blob blob2" alt="graphics" />
-        <img src="{% static 'payments/images/blob4.svg' %}" class="blob blob3" alt="graphics" />
-        <img src="{% static 'payments/images/blob4.svg' %}" class="blob blob4" alt="graphics" />
-    
-        <div class="mobile-money-form">
-            <div class="actual-form-main">
-                <div class="descpadd">
-                    <h4>Add money to Your Ace Marketing Wallet</h4>
-                    <span>Money which you add to your wallet, <br> is used in your marketing campaigns.</span>
-                </div>
-                <button class="add-money-btn mobile-add-btn" id="addmoneybtn" ><i class="fas fa-wallet"></i> &nbsp;Add</button>
-            </div>
-           
-        </div>
-    </div>
 
 
     </main>

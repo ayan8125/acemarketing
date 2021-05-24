@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Dashboad | AceMarketing
+    Dashboad | AcenMark
 {% endblock %}
 
 
@@ -22,19 +22,28 @@
             </div>
             {% if campaign %}
             <div class="users-charts">
-                <div class="my-chart">
-                    <canvas id="leardsreachChart" class="chart-canvas" ></canvas>
-                </div>
+                {% if has_reachs %}
+                    <div class="my-chart">
+                        <canvas id="leardsreachChart" class="chart-canvas" ></canvas>
+                    </div>
+                {% endif %}
                 {% if leads %}
                 <div class="my-chart" >
                     <canvas id="leadsclicksChart" class="chart-canvas"></canvas>
                 </div>
                 {% endif %}
+                {% if has_reachs or leads %}
                 <div class="finalstat lead-reachs">
                     <h5 class="leads-area-head">Overall Leads / Reachs</h5>
                     <h2 class="total-leads" id="total-lead"></h2>
                     <h4 class="total-reach" id="total-reach"></h4>
                 </div>
+                {% else %}
+                    <div class="no-data-avail-reach-lead">
+                        <img src="{% static 'users/images/clean.svg' %}" class="no-data-available"  alt="no-data-avail"/>
+                        <h5 class="no-data-text">For now we dont have sufficient data to show, once your marketing campaign will reach to some peoples then will show you the data over here.</h5>
+                    </div>
+                {% endif %}
             
             </div>
 

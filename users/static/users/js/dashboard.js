@@ -33,7 +33,10 @@ function make_request(url, result_to_dispatch_At_Id) {
                         }
                     ]
                 };
-               drawChart('doughnut', 'reachChart',data, 'Reachs')
+               drawChart('doughnut', 'reachChart',data, 'Reachs','total-reach')
+                        var overall_reach = (responsedata.serach_engine_reachs.total_reach + responsedata.social_media_reachs.total_reach)
+                       var reach_data_area = document.getElementById('total-reach')
+                       reach_data_area.innerHTML = overall_reach
            }
            else{
                const data = {
@@ -46,8 +49,13 @@ function make_request(url, result_to_dispatch_At_Id) {
                         }
                     ]
                 };
-               drawChart('doughnut', 'clicksChart',data, 'Clicks')
+               drawChart('doughnut', 'clicksChart',data, 'Clicks','total-clicks')
+               var overall_clicks = (responsedata.serach_engine_clicks.total_clicks + responsedata.social_media_clicks.total_clicks)
+                var clicks_data_area = document.getElementById('total-clicks')
+                clicks_data_area.innerHTML = overall_clicks
            }
+
+           
 
         }
     };
@@ -80,6 +88,8 @@ function drawChart(type, chart_to_dipatch_at_id, data, title) {
         }
     },
 });
+
+
 }
 
 

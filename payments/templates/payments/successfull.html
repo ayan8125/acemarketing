@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paymeny Successfull | AceMarketing</title>
+    <link rel="shortcut icon" type="image/icon" href="{% static 'marketing/images/favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'payments/css/successfull.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&family=Roboto+Slab:wght@700&family=Fredoka+One&family=Nosifer&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Payment Successfull</h1>
+
+	<main>
+		<div class="result-area">
+			<div class="result"> 
+				<div  class="result-img">
+					<img src="{% static 'marketing/images/high-five.svg' %}" alt="payment-cancel">
+				</div>
+				<div class="result-note">
+					<h4>
+						Your payment was successfull.
+					</h4>
+					<h3 class="alert">
+					If you are starting your journey with acenamrk then your marketing campaign will start from now or if your marketing campaign were stoped then it will start from now.
+					</h3>
+				</div>
+				<div class="action-btn">
+					<a href="{% url 'account' %}">
+						<button>
+							ok
+						</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</main>
+    
 </body>
 </html>

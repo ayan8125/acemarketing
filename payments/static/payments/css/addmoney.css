@@ -1,0 +1,197 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+
+.mobile-view {
+	display: none;
+	position: relative;
+	padding: 1rem;
+}
+
+
+.money-add-area {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin: 2rem 5%;
+}
+
+
+.wallet-svg {
+	width: 100%;
+}
+
+.money-form-modal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-desc h1 {
+	font-weight: bold;
+	font-family: 'Fredoka One', seif;
+	color: #071f38;
+
+}
+
+
+.modal-desc span {
+	font-family: 'Roboto Slab',serif;
+	color: #071f38;
+}
+
+
+.money-field {
+	display: grid;
+    grid-template-columns: 20% 80%;
+    height: 5rem;
+    border-bottom: 2px solid #071f38;
+    width: 20rem;
+}
+
+.money-field button {
+	    font-size: 3rem;
+    border: none;
+    outline: none;
+    background: none;
+    color: #071f38;
+}
+
+
+
+
+.money-field input {
+	border: none;
+    background: none;
+    outline: none;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Fredoka One';
+    color: #071f38;
+}
+
+
+.add-money-btn {
+    padding: 0.5rem;
+    margin: 2rem 0.5rem;
+    background: #071f38;
+    color: #fff;
+    border: none;
+    width: 95%;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Roboto Slab';
+    cursor: pointer;
+
+}
+
+
+
+.add-money-btn:hover {
+ box-shadow: 0 0 1rem #000;
+}
+
+.money-err-msg {
+	font-weight: bold;
+	font-family: 'Roboto Slab', serif;
+	color: crimson;
+}
+
+
+.money-form-area {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 0 1rem #000;
+	background: #fff;
+	padding: 1rem  5%;
+	border-radius: 1rem;
+	/*margin: 1rem 5%;*/
+}
+
+.budget-info-list {
+	padding: 0.2rem;
+	list-style: none;
+}
+
+.budget-info-list li {
+	margin: 0.5rem auto;
+}
+
+.budget-info-list li button {
+	border: none;
+	outline: none;
+	color: #071f38;
+	outline: none;
+	cursor: pointer;
+	background: none;
+}
+
+.budget-info-list li span {
+color: #071f38;
+font-family: 'Fredoka One', serif;
+font-size: 0.8rem;
+
+}
+
+.mobile-view h1 {
+	font-weight: bold;
+	font-family: 'Fredoka One', seif;
+	color: #fff;
+	font-size: 1.5rem;
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+	body {
+		background: #071f38;
+	}
+
+	.mobile-view{
+		display: block;
+	}
+	.money-add-area {
+		display: block;
+		margin: 0;
+	}
+	.modal-illus {
+		display: none;
+	}
+	.modal-desc h1 {
+		display: none;
+	}
+	.money-add-area {
+		background: #fff;
+		box-shadow: 0 0 1rem #000;
+		border-radius: 1.5rem 1.5rem 0 0;
+		padding: 1.5rem;
+	}
+
+	.money-field {
+		width: 15rem;
+	}
+	.money-form-area {
+		box-shadow: none;
+		margin: 1rem;
+	}
+	.modal-desc span {
+		font-size: 0.9rem;
+	}
+	.budget-info-list li span {
+    font-size: 0.7rem;
+}
+}
+
+@media screen and (max-width: 350px) {
+	.money-field {
+		width: 12rem;
+	}
+}

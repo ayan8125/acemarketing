@@ -10,10 +10,11 @@ TRANSACTION_STATUS = ((0, 'Initiaited'), (1, 'Pending'),
 
 
 class Wallet(models.Model):
-    ID = models.IntegerField(auto_created=True, primary_key=True)
+    ID = models.CharField(auto_created=True, primary_key=True, max_length=255)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     currency = models.CharField(max_length=255, default='Pound sterling')
     balanceamt = models.FloatField(default=0.0)
+    amt_str = models.CharField(default='0.0k', max_length=255)
     created_at = models.DateTimeField(default=timezone.now)
     update_at = models.DateTimeField(default=timezone.now)
 

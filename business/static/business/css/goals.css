@@ -149,3 +149,51 @@ main {
 .next {
   margin-right: 1rem;
 }
+
+
+@media screen and (max-width: 1100px) {
+.goal-adv h4 {
+   font-size: 1.7rem;
+  }
+
+.proxy-bakc {
+  height: 35rem;
+}
+
+}
+
+
+@media screen and (max-width: 770px) {
+  .goal {
+    width: 40%;
+  }
+
+}
+
+@media screen and (max-width: 450px){
+  .goal-modal {
+    display: block;
+    width: unset;
+  }
+  .goal-adv, .goal-modal-illustration {
+    width: unset;
+  }
+
+  .goal-modal-illustration {
+    display: none;
+  }
+  .gaols-need li {
+    font-size: 0.8rem;
+  }
+
+  .select-goal-txt {
+    font-size: 1.2rem;
+  }
+  .goal {
+    width: 100%;
+  }
+  .goal-illustration img {
+    width: 14rem;
+    height: 14rem;
+  }
+}

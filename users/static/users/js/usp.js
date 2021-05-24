@@ -5,6 +5,9 @@ const uspform = document.querySelector('.usp-form')
 const submitbtn = document.getElementById('submit-btn')
 const usplist = document.getElementById('usplist')
 
+const skipbtn = document.querySelector('.skip-btn')
+const nextbtn = document.querySelector('.next-btn')
+
 function submitUspForm() {
     if(description.value != ''){
         loader.style.display = 'block'
@@ -15,13 +18,13 @@ function submitUspForm() {
             dataType: 'json',
             data:{
             description:description.value,
-            business: 1,
             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
             },
             success:function(data){
                     loader.style.display = 'none'
                     uspform.style.filter = 'blur(0px)'
                     if (data.usp_added) {
+                        description.value = ''
                         console.log('added suucessfully')
                         pullusp()
                     }   
@@ -36,7 +39,6 @@ function submitUspForm() {
 }
 
 function pullusp() {
-    console.log('making')
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -56,6 +58,15 @@ submitbtn.addEventListener('click', function(e) {
     e.preventDefault()
     submitUspForm();
 });
+
+skipbtn.addEventListener('click', function(){
+    location.href = '/payments/addmoney/'
+})
+
+nextbtn.addEventListener('click', function(){
+    location.href = '/payments/addmoney/'
+})
+
 
 pullusp()
 

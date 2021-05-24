@@ -6,33 +6,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" type="image/icon" href="{% static 'marketing/images/favicon.ico' %}"/>
     <link rel="stylesheet" href="{% static 'users\base.css' %}" />
+    <link rel="stylesheet" href="{% static 'marketing\css\loader.css' %}" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Orelega+One&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Orelega+One&family=Roboto+Slab:wght@700&family=Fredoka+One&display=swap" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/784b66feb8.js" crossorigin="anonymous"></script>
     {% block links %}{% endblock %}
 </head>
 <body>
+    <div id="loader">
+        <div class="sk-chase">
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+        </div>
+    </div>
+    <div class="signout-modal">
+        <div class="logout-modal">
+            <img src="{% static 'marketing/images/escape.svg' %}" alt="logout-modal">
+        </div>
+        <div class="text-actions">
+            <h4>Are you sure you want to signout ?</h4>
+
+            <div class="actions-btns">
+                <button class="action-btn btn-cancel">Cancel</button>
+                <a href="{% url 'signout' %}"><button class="action-btn btn-yes-sure">Yes,sure</button></a>
+            </div>
+        </div>
+    </div>
     <section>
         <nav>
             <div class="side-nav">
-                <button class="logo-btn"><i class="fab fa-instagram"></i></button>
+                <div style="text-align: center;cursor: pointer;">
+                    <img src="{% static 'marketing/images/acenmark.png' %}" class="brand-logo">
+                </div>
+                
                 <div class="navlinks-area">
                     <div class="nav-link-area upper-area">
                         <ul class="nav-list">
                             <li class="nav-item">
                                 <a href="{% url 'dashboard' %}">
+                                    {% if dashboard %}
                                     <button class="nav-item-btn active-btn"> 
                                         <i class="fa fa-home"></i>
                                     </button>
+                                    {% else %}
+                                    <button class="nav-item-btn"> 
+                                        <i class="fa fa-home"></i>
+                                    </button>
+                                    {% endif %}
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="{% url 'leads' %}">
+                                    {% if leadstab %}
+                                    <button class="nav-item-btn active-btn"> 
+                                        <i class="fa fa-list-alt"></i>
+                                    </button>
+                                    {% else %}
                                     <button class="nav-item-btn"> 
                                         <i class="fa fa-list-alt"></i>
                                     </button>
+                                    {% endif %}
                                 </a>
                             </li>
                         </ul>
@@ -40,14 +81,14 @@
                     <div class="nav-link-area lower-area">
                         <ul class="nav-list">
                             <li class="nav-item">
-                                <a href="#">
+                                <a href="{% url 'account' %}">
                                     <img src="{{ request.user.avatar.url }}" class="user-avatar" alt="user-img">
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="#">
-                                    <button class="nav-item-btn"> 
+                                    <button class="nav-item-btn signout-btn"> 
                                         <i class="fa fa-sign-out-alt"></i>
                                     </button>
                                 </a>
@@ -62,5 +103,6 @@
     <main>
         {% block main %}{% endblock %}
     </main>
+    <script type="text/javascript" src="{% static 'users/js/base.js' %}"></script>
 </body>
 </html>

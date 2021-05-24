@@ -21,22 +21,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-s%4bj9r@lk$*ef)*mz7p1bl$tqhgtno6$nlm5&zgas7$di5cx^'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'storages',
-    'payments',
     'business',
     'phonenumber_field',
-    'users',
     'marketing',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
+    'payments.apps.PaymentsConfig',
 
 ]
 
@@ -82,15 +81,6 @@ WSGI_APPLICATION = 'acemarketing.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-    }
-}
 
 
 # Password validation
@@ -145,22 +135,3 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = '/joinus/'
 
 
-STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
-STRIPE_KEY_SECRET = os.environ.get('STRIPE_KEY_SECRET')
-
-
-AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
-
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = 'public-read'
-AWS_QUERYSTRING_AUTH = False
-AWS_S3_REGION_NAME = 'eu-west-2'
-AWS_S3_SIGNATURE_VERSION = 's3v4'
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
-
-DOMAIN = 'http://localhost:8000'

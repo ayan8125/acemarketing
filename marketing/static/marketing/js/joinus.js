@@ -42,8 +42,10 @@ let digits = document.querySelector("#digits");
 let specialChar = document.querySelector("#specialChar");
 let eightChar = document.querySelector("#eightChar");
 
-const okbtn = document.getElementById('okbtn')
-const success_modal_signup = document.querySelector('.success-modal-signup') 
+
+const urlString = location.href
+const paramString = urlString.split('?')[1];
+const queryString = new URLSearchParams(paramString);
 
 
 function  makeactive(btn1, btn2) {
@@ -227,8 +229,20 @@ function submitSigninForm() {
             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
             },
             success:function(data){
+                console.log(data)
                     if (data.success) {
-                        location.href = '/user/dashboard/'
+                        if(data.is_new_user) {
+                            location.href = '/business/add/'
+                            return
+                        }
+                        if (queryString.has('next')){
+                            location.href = queryString.get('next')
+                            return
+                        }
+                        else{
+                            location.href = '/user/dashboard/'
+                        }
+                        
                     }   
 
                     if (data.user_does_not_exists){
@@ -319,7 +333,4 @@ signinbtn.addEventListener('click', function(e) {
 })
 
 
-okbtn.addEventListener('click', function() {
-    success_modal_signup.classList.remove('show-success-modal')
-    makeactive(signin_toggle_btn,signup_toggle_btn)
-})
+

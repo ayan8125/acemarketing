@@ -1,0 +1,202 @@
+
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+
+.usp-form, .usps-area {
+	height: 100%;
+}
+.usps-area {
+	display: grid;
+	grid-template-columns: 70% 30%;
+}
+
+
+.usp-modal-area {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	background: #071f38;
+
+}
+.usp-modal {
+	width: 100%;
+}
+
+
+.usp-form-area {
+	padding: 5rem 15%;
+}
+
+.business-usps {
+	background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem #000;
+    padding: 0.1rem 0.2rem;
+    margin: 1rem 0;
+}
+
+
+ .input-field-usp{
+  background: #fff;
+  box-shadow: 0 0 1rem #000;
+  border-radius: 0.5rem 0 0 0.5rem;
+  height: 5rem;
+}
+.input-field-usp textarea {
+  background: none;
+  height: 100%;
+  border:none;
+  outline: none;
+  font-weight: bold;
+  font-family: 'Fredoka One', serif;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+
+ .input-field-usp {
+  display: flex;
+}
+
+.input-field-usp button {
+  background: none;
+  border:none;
+  outline: none;
+  color: #071f38;
+  font-size: 2rem;
+}
+
+.add-usp-area{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.add-usp-btn {
+  background: #071f38;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  border: none;
+  cursor: pointer;
+}
+
+ .usp-txt {
+	font-weight: bold;
+    font-family: 'Fredoka One';
+    color: #071f38;
+}
+
+.head-usp h2 {
+	font-weight: bold;
+    font-family: 'Fredoka One';
+    color: #fff;
+}
+
+.head-usp {
+	padding: 0.5rem;
+}
+
+.actions-btns {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.action-btn {
+	  background: #071f38;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.2rem;
+  margin: 1rem;
+  transition: all 0.5s ease-in-out;
+  font-family: 'Roboto Slab',serif;
+}
+
+
+.action-btn:hover {
+	box-shadow: 0 0 1rem #000;
+}
+
+.usp-list {
+	padding: 0.2rem;
+	list-style: none;
+}
+
+.usp-list li {
+	margin: 0.5rem auto;
+}
+
+.usp-list li button {
+	border: none;
+	outline: none;
+	color: #fff;
+	outline: none;
+	cursor: pointer;
+	background: none;
+}
+
+.usp-list li span {
+color: #fff;
+font-family: 'Fredoka One', serif;
+font-size: 0.8rem;
+
+}
+.mobile-usp {
+	display: none;
+}
+
+
+@media screen and (max-width: 600px) {
+	.usps-area {
+	display: block;
+	}
+
+	.usp-modal-area {
+		display: none;
+	}
+
+	.usp-form-area {
+		padding: 0rem 2%;
+	}
+
+	.mobile-usp {
+	display: block;
+}
+
+
+.usp-list li button {
+	color: #071f38;
+	font-size: 0.6rem;
+}
+
+.usp-list li span {
+color: #071f38;
+font-size: 0.6rem;
+
+}
+.head-usp h2 {
+
+    color: #071f38;
+}
+
+
+
+}
+
+@media screen and (max-width: 350px) {
+	.input-field-usp textarea {
+  	font-size: 1rem;
+	}
+}

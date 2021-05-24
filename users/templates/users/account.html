@@ -1,0 +1,287 @@
+{% extends 'users\base.html' %}
+{% load static %}
+
+{% block title %}
+    Account | AcenMark
+{% endblock %}
+
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'users\account.css' %}" />
+{% endblock %}
+
+
+{% block main %}
+    <div class="message-modal">
+        <div class="mess-body">
+            <img src="{% static 'marketing/images/email_send.svg' %}" class="mess-modal">
+            <h4>Check your inbox, an Email Verification link has been sended sucessfully.</h4>
+            <button class="close-btn">ok</button>
+        </div>
+    </div>
+    <div class="acc-main">
+        <div class="account-info">
+            <div class="account profile-info ">
+                <div class="head-edit-btn">
+                    <h1>Profile</h1>
+                    <button class="change-content-btn"><i class="fas fa-pen" id="edit-back"></i></button>
+                </div>
+                 <div class="user-basic-details show-info">
+                     <div class="user-detail">
+                            <div class="status-div user-detail-status">
+                                <button class="close-btn-status close-btn-user-detail-status"><i class="fas fa-times"></i></button>
+                                <span id="user-detail-status-msg" class="status-msgs"></span>
+                            </div>
+                         <div class="profile-img">
+                            <div class="status-div">
+                                <button class="close-btn-status"><i class="fas fa-times"></i></button>
+                                <span id="status-msg"></span>
+                            </div>
+                            <input type="file" name="profile-field" id="profile-field" hidden>
+                             <img src="{{request.user.avatar.url}}" id="user-profile-img" class="user-avatar">
+                             <button class="upload-btn"><i class="fas fa-camera"></i></button>
+                         </div>
+                         <div class="info-area">
+                             <button class="info-btn-area"><i class="fas fa-user"></i></button>
+                             <h4 class="info-value-area">{{request.user.get_full_name}}</h4>
+                         </div>
+                          <div class="info-area">
+                             <button class="info-btn-area"><i class="fas fa-envelope"></i></button>
+                             <div class="value-area">
+                                 <h4 class="info-value-area user-email">{{request.user.email}}</h4>
+                                 {% if request.user.is_email_verified %}
+
+                                 {% else %}
+                                 <button class="verify-emai-btn">Verify</button>
+                                 {% endif %}   
+                             </div>
+
+                         </div>
+                          <div class="info-area">
+                             <button class="info-btn-area"><i class="fas fa-mobile"></i></button>
+                             <div class="value-area">
+                                 <h4 class="info-value-area">{{request.user.phone_number}}</h4>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="user-detail-edit-form">
+                            <div class="status-div user-detail-status">
+                                <button class="close-btn-status close-btn-user-detail-status"><i class="fas fa-times"></i></button>
+                                <span id="user-detail-status-msg" class="status-msgs"></span>
+                            </div>
+                         <form method="POST" id="edit-form">
+                            {% csrf_token %}
+                             <div class="input-field-area">
+                                 <button><i class="fas fa-user"></i></button>
+                                 <input type="text" name="first-name" id="first-name" value="{{request.user.first_name}}" placeholder="firstname">
+                                 <span class="err-msg" id="err-fname"></span>
+                             </div>
+                             <div class="input-field-area">
+                                 <button><i class="fas fa-user"></i></button>
+                                 <input type="text" name="last-name" id="last-name"value="{{request.user.last_name}}" placeholder="lastname">
+                                 <span class="err-msg" id="err-lname"></span>
+                             </div>
+                             <div class="input-field-area">
+                                 <button><i class="fas fa-user"></i></button>
+                                 <input type="text" name="email" id="email" value="{{request.user.email}}" placeholder="email">
+                                 <span class="err-msg" id="err-email"></span>
+                             </div>
+                             <div class="input-field-area">
+                                 <button><i class="fas fa-user"></i></button>
+                                 <input type="text" name="phone-number" id="phone-number" value="{{request.user.phone_number}}" placeholder="phoneNumber">
+                                 <span class="err-msg" id="err-phno"></span>
+                             </div>
+                             <button type="submit" class="submit-btn">Sav the changes</button>
+                         </form>
+                     </div>
+                 </div>
+            </div>
+            <div class="account business-infos">
+                <div class="head-edit-btn">
+                    <h1>Business</h1>
+                    <button class="business-content-btn" id="busines-content-tog"><i class="fas fa-pen" id="edit-back-business"></i></button>
+                </div>
+                 <div class="business-basic-details show-business-info">
+                     <div class="business-detail">
+                         <div class="business-info info-area">
+                             <button class="info-btn-area"><i class="fas fa-building"></i></button>
+                             <h4 class=" info-value-area">{{request.user.business.name}}</h4>
+                         </div>
+                          <div class="business-info info-area">
+                             <button class="info-btn-area"><i class="fas fa-bezier-curve"></i></button>
+                             <div class="value-area">
+                                 <h4 class="info-value-area user-email">{{request.user.business.sector.name}}</h4> 
+                             </div>
+
+                         </div>
+                          <div class="business-info info-area">
+                             <button class="info-btn-area"><i class="fas fa-globe"></i></button>
+                             <div class="value-area">
+                                 <h4 class="info-value-area">{{request.user.business.website}}</h4>
+                             </div>
+                         </div>
+
+                         <div class="business-info info-area">
+                             <button class="info-btn-area"><i class="fas fa-flag"></i></button>
+                             <h4 class="info-value-area">{{request.user.business.give_country_name}}</h4>
+                         </div>
+
+                        <div class="business-info info-area">
+                             <button class="info-btn-area"><i class="fas fa-map-marked"></i></button>
+                             <h4 class="info-value-area">{{request.user.business.address}}</h4>
+                         </div>
+                         <div class="city-post-code">
+                             <div class="business-info info-area">
+                                 <button class="info-btn-area"><i class="fas fa-map-marker-alt"></i></button>
+                                 <h4 class="info-value-area">{{request.user.business.city}}</h4>
+                             </div>
+                             <div class="business-info info-area">
+                                 <button class="info-btn-area"><i class="fas fa-map-pin"></i></button>
+                                 <h4 class="info-value-area">{{request.user.business.postcode}}</h4>
+                             </div>
+                          </div>
+
+                     </div>
+                     <div class="business-detail-edit-form">
+                         <form method="POST" id="business-address-form">
+                            <div class="status-div user-business-detail-status">
+                                <button class="close-btn-status close-btn-user-business-detail-status"><i class="fas fa-times"></i></button>
+                                <span id="user-business-detail-status-msg" class="status-msgs"></span>
+                            </div>
+                            {% csrf_token %}
+                             <div class="input-field-area">
+                                 <button><i class="fas fa-building"></i></button>
+                                 <input type="text" name="business-name" id="id_name" value="{{request.user.business.name}}" placeholder="Business name" autocomplete="off">
+                                 <span class="err-msg" id="err-business-name"></span>
+                             </div>
+                            <div class="country-section-area">
+                                 <div class="input-field-area sector-area">
+                                     <button><i class="fas fa-bezier-curve"></i></button>
+                                     <input type="text" name="sector" id="id_sector" value="{{request.user.business.sector.name}}" placeholder="sector" readonly autocomplete="off" >
+                                     <ul id="sector-list"></ul>
+                                 </div>
+                                 
+
+                                 <div class="input-field-area country-area">
+                                     <button><i class="fas fa-flag"></i></button>
+                                     <input type="text" name="country" id="id_country" value="{{request.user.business.give_country_name}}" placeholder="country" readonly autocomplete="off" >
+                                     <ul id="country-list"></ul>
+                                 </div>
+                                 
+                            </div>
+                             <div class="input-field-area address-area">
+                                 <button><i class="fas fa-map-marked"></i></button>
+                                 <input type="text" name="address" id="id_address" value="{{request.user.business.address}}" placeholder="address" autocomplete="off">
+                                 <span class="err-msg" id="err-address"></span>
+                             </div>
+                             <div class="city-postcode-area">
+                                 <div class="input-field-area">
+                                     <button><i class="fas fa-map-marker-alt"></i></button>
+                                     <input type="text" name="city" id="id_city" value="{{request.user.business.city}}" placeholder="city" autocomplete="off">
+                                     <span class="err-msg" id="err-city"></span>
+                                 </div>
+
+                                 <div class="input-field-area">
+                                     <button><i class="fas fa-map-pin"></i></button>
+                                     <input type="text" name="postcode" id="id_postcode" value="{{request.user.business.postcode}}" placeholder="postcode" autocomplete="off">
+                                     <span class="err-msg" id="err-postcode"></span>
+                                 </div>
+                            </div>
+                                <div class="input-field-area web-area">
+                                     <button><i class="fas fa-globe"></i></button>
+                                     <input type="text" name="website" id="id_website" value="{{request.user.business.website}}" placeholder="www.mybusiness.com" autocomplete="off" >
+                                     <span class="err-msg" id="err-website"></span>
+                                 </div>
+                                <div class="checkbox-input-field-area">
+                                 <h4>Business  runs online or has a website </h4>
+                                 {% if request.user.business.runs_online %}
+                                 <input type="checkbox" name="runs-online" id="id_runs_online"value="{{request.user.business.runs_online}}" checked>
+                                 {% else %}
+                                 <input type="checkbox" name="runs-online" id="id_runs_online" value="{{request.user.business.runs_online}}" >
+                                 {% endif %}
+                             </div>
+                             <div class="checkbox-input-field-area">
+                               <h4>Business has local store </h4>
+                                 {% if request.user.business.runs_locally %}
+                                 <input type="checkbox" name="runs_locally" id="id_runs_locally"value="{{request.user.business.runs_locally}}" checked>
+                                 {% else %}
+                                 <input type="checkbox" name="runs-online" id="id_runs_locally" value="{{request.user.business.runs_locally}}" >
+                                 {% endif %}
+                             </div>
+                             <button type="submit" class="submit-business-btn">Sav the changes</button>
+                         </form>
+                     </div>
+                 </div>
+            </div>
+            <div class="account business-goals">
+                <div class="head-edit-btn">
+                    <h1>Business Goals</h1>
+                </div>
+                <div class="add-goal-area">
+                    <div class="input-field-goal">
+                        <button><i class="fas fa-bullseye"></i></button>
+                        <textarea type="text" name="goal" id="id_goal" class="goalfield" placeholder="Add New Goal"></textarea>
+
+                    </div>
+                    <button type="submit" class="add-goal-btn"><i class="fas fa-plus-circle"></i></button>
+                </div>
+                <div class="business-goals-list" id="business-goals">
+                    
+                </div>
+            </div>
+            <div class="account business-usp">
+                <div class="head-edit-btn">
+                    <h1>Business USP</h1>
+                </div>
+                <div class="add-usp-area">
+                    <div class="input-field-usp">
+                        <button><i class="fas fa-star"></i></button>
+                        <textarea type="text" name="goal" id="id_usp" class="uspfield" placeholder="Add New Usp"></textarea>
+
+                    </div>
+                    <button type="submit" class="add-usp-btn"><i class="fas fa-plus-circle"></i></button>
+                </div>
+                <div class="business-usp-list" id="business-usp">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="user-wallet">
+            <div class="wallet-detail">
+               <img src="{% static 'users/images/wallet.svg' %}" class="wallet-img" alt="wallet">
+               <div class="wallet-info">
+                   <h2><i class="fas fa-pound-sign"></i> {{request.user.wallet.amt_str}}</h2>
+                   <h5>Balance Amt</h5>
+
+                   <button class="addmoneybtn p_addmoney">Add Money</button>
+                   <br>
+                   {% if request.user.wallet.balanceamt < 60 %}
+                   <span class="wall-alert">to avoid interuption in your marketing campaign, Please add money to your wallet .</span>
+                   {% endif %}
+               </div>
+            </div>
+
+        </div>
+        <div class="add-money-wallet acc-wallet">
+            <button class="close-wall-btn"><i class="fas fa-times"></i></button>
+            <form class="add-money-o-Wallet">
+                <div class="money-field">
+                    <button><i class="fas fa-pound-sign"></i></button>
+                    <input type="text" name="money" value="3000" id="money" autocomplete="off">
+                </div>
+                <span class="money-err-msg"></span>
+                <button class="add-money-btn" id="addmoneybtn">ADD</button>
+            </form>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'marketing/js/joinus.js' %}"></script>
+    <script type="text/javascript" src="{% static 'business/js/business_add.js' %}"></script>
+    <script type="text/javascript" src="{% static 'users/js/account.js' %}"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{% static 'payments/js/addmoney.js' %}"></script>
+    <script src="{% static 'users/js/upload.js' %}"></script>
+
+{% endblock %}

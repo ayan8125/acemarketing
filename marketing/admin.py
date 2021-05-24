@@ -13,3 +13,5 @@ admin.site.register(EmailMarketingCampaign)
 admin.site.register(Customer)
 admin.site.register(UsersforEmailCampaign)
 
+admin.site.register(GetInTouch)
+

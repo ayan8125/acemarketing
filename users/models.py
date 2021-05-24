@@ -9,6 +9,8 @@ from django.conf import settings
 from .managers import UserManager
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils import timezone
+from marketing.utils import SendDynamic
+from django.conf  import settings 
 
 
 UK_COUNTRY_CHOICES = ((0, 'England'), (1, 'Scotland'),
@@ -22,6 +24,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
     avatar = models.ImageField(
         upload_to='users/', null=True, blank=True, default='default.png')
+    is_email_verified = models.BooleanField(default=False)
+    is_phonenumber_verified = models.BooleanField(default=False)
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
     is_active = models.BooleanField(_('active'), default=True)
     is_staff = models.BooleanField(_('staff status'), default=False)
@@ -48,11 +52,15 @@ class User(AbstractBaseUser, PermissionsMixin):
         '''
         return self.first_name
 
-    def email_user(self, subject, message, from_email=None, **kwargs):
-        '''
-        Sends an email to this User.
-        '''
-        send_mail(subject, message, from_email, [self.email], **kwargs)
+    def email_user(self, **kwargs):
+        if kwargs['email_type'] == 'email_verification':
+            TEMPLATE_ID = settings.EMAIL_VERIFICATION_TEMPLATE_ID
+        if kwargs['email_type'] == 'password_reset':
+            TEMPLATE_ID = settings.PASSWORD_RESET_TEMPLATE_ID
+        response_status = SendDynamic(settings.ACENMARK_EMAIL,self.email,TEMPLATE_ID,kwargs['dynamic_data'])
+        if response_status == 202:
+            return 1
+        return 0
 
 
 

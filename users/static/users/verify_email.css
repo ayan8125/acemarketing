@@ -1,0 +1,75 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+	background: #071f38;
+}
+
+
+main {
+	width: 100%;
+	height: 100%;
+}
+
+
+.email-verification-area {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.email-verify-area-body 
+ {
+	background: #fff;
+	border-radius: 0.5rem;
+	box-shadow: 0 0 1rem #000;
+	padding: 2rem;
+	width: 15rem;
+}
+
+.email-verify-area-body button {
+
+
+}
+
+.email-verify-area-body h4 {
+	color: #071f38;
+	font-family: 'Fredoka One',serif;
+}
+
+
+.email-verify-area-body a button  {
+	background: #071f38;
+	color: #fff;
+	font-family: 'Fredoka One',serif;
+	width: 100%;
+	padding: 0.5rem 0.2rem;
+	border-radius: 0.2rem;
+	border: none;
+	cursor: pointer;
+	margin: 1rem 0.2rem;
+}
+
+.email-verify-area-body a {
+	text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 600px) {
+	body {
+		background: #fff;
+	}
+	.email-verify-area-body  {
+		box-shadow: none;
+	}
+}
+

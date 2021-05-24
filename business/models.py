@@ -9,11 +9,12 @@ UK_COUNTRY_CHOICES = ((0, 'England'), (1, 'Scotland'),
 
 
 class Sector(models.Model):
-    _id = models.IntegerField(primary_key=True, auto_created=True)
+    ID = models.IntegerField(primary_key=True, auto_created=True)
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return f'{self.name}'
+
 
 
 class Business(models.Model):
@@ -38,8 +39,16 @@ class Business(models.Model):
         return f'{self.address}, {self.city} - {self.postcode}'
 
 
+    def give_country_name(self):
+        country_key = self.country
+        for country in UK_COUNTRY_CHOICES:
+            if country_key == country[0]:
+                return country[1]
+        return ''
+
+
 class USP(models.Model):
-    ID = models.CharField(auto_created=True, primary_key=True, max_length=255)
+    ID = models.CharField(auto_created=True, primary_key=True, max_length=255, default=1)
     description = models.TextField(blank=True, null=True)
     business = models.ForeignKey(Business, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
@@ -50,7 +59,7 @@ class USP(models.Model):
 
 
 class Goals(models.Model):
-    ID = models.CharField(auto_created=True, primary_key=True, max_length=255)
+    ID = models.CharField(auto_created=True, primary_key=True, max_length=255, default=1)
     goal = models.TextField(blank=True, null=True)
     business = models.ForeignKey(Business, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)

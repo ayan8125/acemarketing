@@ -1,16 +1,17 @@
 const money = document.getElementById('money')
 const addmoneybtn = document.getElementById('addmoneybtn')
 const addmoneyform = document.querySelector('.add-money-o-Wallet')
-const csrfmiddlewaretoken = document.getElementsByName('csrfmiddlewaretoken')[0]
+const csrfmiddlewaretoken1 = document.getElementsByName('csrfmiddlewaretoken')[0]
 var stripe = Stripe("pk_test_51H6aJHEoanPy9ym0YhsVmX6Nz24wbDv0i2HygIRLBt1BllWmPKE71Nrlv16luAYTwAgmdfqkdiWb411cUpGqGH5N00rePP7L1m");
-const errmsg = document.querySelector('.err-msg')
-var amountValid = false;
-var main = document.getElementsByTagName('main')[0]
-var loader = document.getElementById('loader')
-
+const errmsg = document.querySelector('.money-err-msg')
+var amountValid = true;
+var addmoney_main_screen = document.getElementsByTagName('main')[0]
+var addmoneyloader = document.getElementById('loader')
+var p_addmoney = document.querySelector('.p_addmoney')
+const acc_wallet = document.querySelector('.acc-wallet')
+const close_wall_btn = document.querySelector('.close-wall-btn')
 
 function UpdateTransaction(razorpay_payment_id, razorpay_order_id, razorpay_signature) {
-  console.log('came in loaddoc')
     if (window.XMLHttpRequest) {
         // code for modern browsers
         xmlhttp = new XMLHttpRequest();
@@ -26,9 +27,8 @@ function UpdateTransaction(razorpay_payment_id, razorpay_order_id, razorpay_sign
       }
     };
     const data = {'razorpay_payment_id':razorpay_payment_id,'razorpay_order_id':razorpay_order_id, 'razorpay_signature': razorpay_signature}
-    console.log(data)
     xmlhttp.open("post", "/payments/transaction/", true);
-    xmlhttp.setRequestHeader("X-CSRFToken", csrfmiddlewaretoken.value);
+    xmlhttp.setRequestHeader("X-CSRFToken", csrfmiddlewaretoken1.value);
     xmlhttp.setRequestHeader("Content-type", "application/json");
     xmlhttp.send(JSON.stringify(data));
   }
@@ -36,14 +36,14 @@ function UpdateTransaction(razorpay_payment_id, razorpay_order_id, razorpay_sign
 addmoneybtn.addEventListener("click", function (e) {
   e.preventDefault()
   if (amountValid) {
-    main.style.filter = 'blur(5px)'
-    loader.style.display = 'block'
+    addmoney_main_screen.style.filter = 'blur(5px)'
+    addmoneyloader.style.display = 'block'
     fetch("/payments/transaction/", {
       method: "POST",
       body: JSON.stringify({'amount':money.value}),
       headers: {
         'Content-Type': 'application/json',
-        'X-CSRFToken': csrfmiddlewaretoken.value,
+        'X-CSRFToken': csrfmiddlewaretoken1.value,
       },
     }).then(function (response) {
 
@@ -85,8 +85,8 @@ else{
 
 
 money.addEventListener('blur', function(){
-    if (parseInt(money.value) < 2000 )
-    errmsg.innerHTML = 'You have to add minimum 2k'
+    if (parseInt(money.value) < 3000 )
+    errmsg.innerHTML = 'You have to add minimum 3k'
   else{
       if (parseInt(money.value) > 7000)
         errmsg.innerHTML = 'You can only add 7k maximum in one transaction'
@@ -95,4 +95,12 @@ money.addEventListener('blur', function(){
         amountValid = true;
       }
     }
+})
+
+p_addmoney.addEventListener('click', function() {
+  acc_wallet.classList.toggle('show-add-amoney-form')
+})
+
+close_wall_btn.addEventListener('click', function() {
+  acc_wallet.classList.toggle('show-add-amoney-form')
 })

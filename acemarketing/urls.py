@@ -21,13 +21,23 @@ from marketing import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.Home, name="home"),
+    path('services/', views.Services, name="services"),
+    path('pricing/', views.Pricing, name="pricing"),
     path('payments/', include('payments.urls')),
     path('user/', include('users.urls')),
     path('business/', include('business.urls')),
     path('joinus/', views.Joinus, name="joinus"),
     path('signup/', views.Signup, name="signup"),
     path('signin/', views.Signin, name="signin"),
+    path('signout/', views.SignOut, name="signout"),
+    path('getIntouch/add/', views.getInTouch, name="getInTouch"),
+    path('request-reset-password/', views.RequestResetPassword.as_view(), name="request-reset-password"),
+    path('reset-password/<str:uidb64>/<str:token>/',
+         views.ResetPassword.as_view(), name='reset-password'),
+    path('test/', views.test, name="test"),
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

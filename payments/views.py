@@ -23,26 +23,30 @@ class Transaction(View):
         payobj = Payment()
         session_id, product_id = payobj.createSession(
             (int(data['amount'])*100), request.user)
-        t = transaction(_id=product_id,
+        t = transaction(ID=product_id,
                         wallet=request.user.wallet, amount=float(data['amount']))
         t.save()
         return JsonResponse({'id': session_id})
 
 
 def paymentSuccessful(request, transactionId):
-    t = transaction.objects.filter(_id=transactionId).first()
+    t = transaction.objects.filter(ID=transactionId).first()
     if t is not None:
         t.status = 2
         t.save()
         amount = t.amount
+        amount += t.wallet.balanceamt
         t.wallet.balanceamt = amount
+        amt_str = str(round((amount/1000),1))+'k'
+        t.wallet.amt_str = amt_str
         t.save()
+        t.wallet.save()
         return render(request, 'payments/successfull.html')
     return HttpResponse('<h1>Page Nont Found</h1>')
 
 
 def paymentCancel(request, transactionId):
-    t = transaction.objects.filter(_id=transactionId).first()
+    t = transaction.objects.filter(ID=transactionId).first()
     if t is not None:
         t.status = 3
         t.save()

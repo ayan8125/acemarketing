@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USP | Add a Usp</title>
-    <link rel="stylesheet" src="{% static 'marketing/css/joinus.css' %}" />
+    <title>USP | Add your business Usp | AcenMark </title>
+    <link rel="stylesheet" href="{% static 'marketing/css/loader.css' %}" />
+    <link rel="stylesheet" href="{% static 'business/css/usp.css' %}" />
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Orelega+One&family=Roboto+Slab:wght@700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/784b66feb8.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div class="usp-form" >
@@ -20,14 +24,95 @@
                 <div class="sk-chase-dot"></div>
             </div>
         </div>
-        <form method="POST">
-        {% csrf_token %}
-        {{uspform.description}}
-        <button  id="submit-btn">Submit</button>
-        </form>
-        <div id="usplist">
-        
+        <div class="usps-area">
+            <div class="usp-area usp-form-area">
+                    <div class="head-usp mobile-usp">
+                        <h2>Add Your Business Unique Selling Proposition(USP) </h2>
+                        <ul class="usp-list">
+                            <li>
+                                <button>
+                                    <i class="fas fa-thumbtack"></i>
+                                </button>
+                                <span>
+                                    A unique selling proposition (USP) refers to the unique benefit exhibited by a company, service, product or brand that enables it to stand out from competitors. 
+                                </span>
+                            </li>
+                            <li>
+                                <button>
+                                    <i class="fas fa-thumbtack"></i>
+                                </button>
+                                <span>
+                                     The unique selling proposition must be a feature that highlights product benefits that are meaningful to consumers. 
+                                </span>
+                            </li>
+                            <li>
+                                <button>
+                                    <i class="fas fa-thumbtack"></i>
+                                </button>
+                                <span>
+                                    USP Example:<br/> We are THE low-fare airline,<br/>You get fresh, hot pizza delivered to your door in 30 minutes or less—or it's free,<br/>Fast, incredibly fast relief,etc. 
+                                </span>
+                            </li>
+                        </ul>
+                    </div>  
+                <form method="POST">
+
+                    {% csrf_token %}
+                <div class="add-usp-area">
+                    <div class="input-field-usp">
+                        <button><i class="fas fa-star"></i></button>
+                        {{uspform.description}}
+                    </div>
+                    <button type="submit" id="submit-btn" class="add-usp-btn"><i class="fas fa-plus-circle"></i></button>
+                </div>
+
+                </form>
+                <div id="usplist">
+                
+                </div>   
+                <div class="actions-btns">
+                    <button class="action-btn skip-btn">SKIP</button>
+                    <button class="action-btn next-btn">NEXT</button>
+                </div>
+            </div>
+            <div class="usp-area usp-modal-area">
+                <div>
+
+                  <img src="{% static 'business/images/usps.svg' %}" alt="Usp Modal" class="usp-modal">    
+                    <div class="head-usp">
+                        <h2>Add Your Business Unique Selling Proposition(USP) </h2>
+                        <ul class="usp-list">
+                            <li>
+                                <button>
+                                    <i class="fas fa-thumbtack"></i>
+                                </button>
+                                <span>
+                                    A unique selling proposition (USP) refers to the unique benefit exhibited by a company, service, product or brand that enables it to stand out from competitors. 
+                                </span>
+                            </li>
+                            <li>
+                                <button>
+                                    <i class="fas fa-thumbtack"></i>
+                                </button>
+                                <span>
+                                     The unique selling proposition must be a feature that highlights product benefits that are meaningful to consumers. 
+                                </span>
+                            </li>
+                            <li>
+                                <button>
+                                    <i class="fas fa-thumbtack"></i>
+                                </button>
+                                <span>
+                                    USP Example:<br/> We are THE low-fare airline,<br/>You get fresh, hot pizza delivered to your door in 30 minutes or less—or it's free,<br/>Fast, incredibly fast relief,etc. 
+                                </span>
+                            </li>
+                        </ul>
+                    </div>              
+                </div>
+
+            </div>
         </div>
+
     </div>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

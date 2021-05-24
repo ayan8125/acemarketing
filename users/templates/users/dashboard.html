@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Dashboad | AceMarketing
+    Dashboad | AcenMark
 {% endblock %}
 
 
@@ -18,19 +18,48 @@
                 <h3 class="dashboard-txt">Dashboard</h3>
                 <h5 class="date-t" id="t-date"></h5>
             </div>
-
-            <div class="users-charts">
-                <div class="my-chart">
-                    <canvas id="reachChart" class="chart-canvas" ></canvas>
+            {% if active_camp %}
+                {% if  has_reach or has_clicks %}
+                    <div class="users-charts">
+                        {% if  has_reach %}
+                        <div class="my-chart">
+                            <canvas id="reachChart" class="chart-canvas" ></canvas>
+                        </div>
+                        {% endif %}
+                        {% if  has_clicks %}
+                        <div class="my-chart" >
+                            <canvas id="clicksChart" class="chart-canvas"></canvas>
+                        </div>
+                        {% endif %}
+                        {% if  has_reach or has_clicks %}
+                       <div class="finalstat lead-reachs">
+                            <h5 class="leads-area-head">Overall Clicks / Reachs</h5>
+                            <h2 class="total-leads" id="total-clicks"></h2>
+                            <h4 class="total-reach" id="total-reach"></h4>
+                        </div>                           
+                        {% endif %}
+                    
+                    </div>
+                    <div id="camp-info-block"></div>
+                {% else %}
+                    <div class="no-data-avail-reach-lead">
+                        <img src="{% static 'users/images/clean.svg' %}" class="no-data-available"  alt="no-data-avail"/>
+                        <h5 class="no-data-text"> We dont have sufficient data to show, once your marketing campaign will reach to some peoples then will show you the data over here.</h5>
+                    </div>
+                    <h1>
+                       
+                     </h1>
+                {% endif %}
+            {% else %}
+                <div class="no-leads">
+                    <img src="{% static 'users/images/taken_re.svg' %}" class="no-data-available"  alt="no-data-avail"/>
+                    <h5 class="no-data-text">You don't have any Marketing campaign Running.</h5>
                 </div>
-                <div class="my-chart" >
-                    <canvas id="clicksChart" class="chart-canvas"></canvas>
-                </div>
-            
-            </div>
-            <div id="camp-info-block"></div>
+            {% endif %}
         </div>
-        <div class="right-side-nav"></div>
+        <div class="right-side-nav">
+            <h1>Right Nav</h1>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.0/dist/chart.min.js" integrity="sha256-ovnFmAOngtHmlhZzPyGrofexz4Kdik4kEobc8B9r1Yk=" crossorigin="anonymous"></script>
     <script src="{% static 'users/js/dashboard.js' %}"></script>

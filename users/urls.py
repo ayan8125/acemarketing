@@ -20,4 +20,13 @@ urlpatterns = [
 
     path('download/camp_id=<int:campaignid>/',
          views.dowload_Xls, name='dowload_Xls'),
+
+
+    path('account/', views.Account, name='account'),
+    path('edit-user/', views.EditUser, name='edituser'),
+    path('edit-user-avatar/', views.EditUserAvatar, name='edituseravatar'),
+
+    path('email-verification/', views.sendVerificationLink, name="email-verification"),
+    path('verify-email-verification/<str:uidb64>/<str:token>/',
+         views.verifyEmail, name='verify-email'),
 ]

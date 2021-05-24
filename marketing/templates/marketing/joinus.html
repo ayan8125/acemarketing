@@ -1,10 +1,24 @@
 {% load static %}
 <html>
     <head>
-        <title>Join Us | AceMarketing</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="title" content="Get Started with AcenMark">
+        <meta name="description" content="Get Started with AcenMark and start growing and evolving your Businesses">
+        <meta name="keywords" content="AcenMark SignUp,AcenMark SignIn, Join AcenMark, Get started with AcenMark, AcenMark, AcenMark Login Page, AcenMark Signup page,">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <meta name="author" content="AcenMark">
+
+        <title>Join Us | AcenMark</title>
         <link rel="stylesheet" href="{% static 'marketing/css/joinus.css' %}">
+        <link rel="stylesheet" href="{% static 'marketing/css/loader.css' %}">
+
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&family=Nosifer&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&family=Roboto+Slab:wght@700&family=Fredoka+One&family=Nosifer&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/784b66feb8.js" crossorigin="anonymous"></script>
     </head>
 
@@ -16,7 +30,7 @@
             
             <div class="joinus-modal">
                 <div class="brand">
-                    <h4>AceMarketing</h4>
+                    <h4>AceMark</h4>
                 </div>
                 <div class="modal-and-form">
                     <div class="modal">
@@ -73,7 +87,7 @@
                                         <label for="first-name">Phone Number</label><br/>
                                         <div class="input-area phone-area">
                                             <div class="country-info">
-                                                <img src="{% static 'marketing/images/uk.svg' %}" alt="" class="country-flag">
+                                                <img src="{% static 'marketing/images/uk.png' %}" alt="" class="country-flag">
                                                 <h4 class="country-code">+44</h4>
                                             </div>
                                             <input type="tel" class="input-field" placeholder="7447  963258" id="phone-number" />
@@ -136,17 +150,121 @@
                                     </div>
 
                                     <button class="submit-btn" id="signin-btn">SignIn</button>
+                                    <div style="text-align: center;padding: 1rem">
+                                      <a href="{% url 'request-reset-password' %}" class="reset-link">
+                                        Forgot Password ?
+                                    </a>                                      
+                                    </div>
+
                                 </form>
                             </div>
 
                         </div>
 
                     </div>
-                    <div class="success-modal-signup">
+                 </div>
+            </div>
+
+            <div class="success-modal-signup">
                         <img src="{% static 'marketing/images/high-five.svg' %}" alt="high-five" class="high-five">
                         <div class="msg-and-btn">
                             <span>Your Account has Been  Created Successfully, Please Login with Your Credentails.</span>
                             <br/><button class="ok-btn" id="okbtn">Ok</button>
+                        </div>
+            </div>
+
+
+            <div class="joinus-mobile-view">
+            <img src="{% static 'marketing/images/test.svg' %}" class="back-design">
+                
+            <div id="mob-loader">
+                <div class="sk-chase">
+                  <div class="sk-chase-dot"></div>
+                  <div class="sk-chase-dot"></div>
+                  <div class="sk-chase-dot"></div>
+                  <div class="sk-chase-dot"></div>
+                  <div class="sk-chase-dot"></div>
+                  <div class="sk-chase-dot"></div>
+                </div>
+            </div>
+                <div class="form-proxy-area">
+                    <div class="mob-forms-area mob-sign-up-mode ">
+                        <div class="mob-forms mob-signup-form">
+                            <form class="sign-form mob-sign-up" method="POST">
+                                 <h1 class="get-st-txt">Get Started</h1>
+                                    {% csrf_token %}
+                                    <div class="two-field-area">
+                                        <div class="input-area">
+                                            <label for="first-name">First Name</label><br/>
+                                            <input type="text" class="input-field" id="mob-first-name" />
+                                            <span class="err-msg" id="mob-err-fname"></span>
+                                        </div>
+                                        <div class="input-area">
+                                            <label for="first-name">Last Name</label><br/>
+                                            <input type="text" class="input-field"  id="mob-last-name" />
+                                            <span class="err-msg" id="mob-err-lname"></span>
+                                        </div>
+                                    </div>
+                                    <div class="input-area">
+                                        <label for="first-name">Email</label><br/>
+                                        <input type="email" class="input-field"  id="mob-email" />
+                                        <span class="err-msg" id="mob-err-email"></span>
+                                    </div>
+                                    <div class="phone-number-area">
+                                        <label for="first-name">Phone Number</label><br/>
+                                        <div class="input-area phone-area">
+                                            <div class="country-info">
+                                                <img src="{% static 'marketing/images/uk.png' %}" alt="" class="country-flag">
+                                                <h4 class="country-code">+44</h4>
+                                            </div>
+                                            <input type="tel" class="input-field" placeholder="7447  963258" id="mob-phone-number" />
+                                            <span class="err-msg" id="mob-err-phno"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-area">
+                                        <label for="first-name">Password</label><br/>
+                                        <input type="password" class="input-field"  id="mob-password" /><br />
+                                        <span class="err-msg" id="mob-err-pass"></span>
+
+                                    </div>
+                                    
+                                    <button class="mob-subtn" type="submit" id="mob-signup-btn"><i class="fas fa-arrow-right" ></i></button>
+                                </form>
+                            <h4 class="active-form-txt">SignUp</h4>
+                            <button class="tobe-active mob-signin-make-active">SignIn</button>
+                        </div>
+                        <div class="mob-forms mob-sign-in-forms">
+                                <form class="sign-form mob-sign-in" method="POST">
+                                     <h1 class="get-st-txt">Welcome Back</h1>
+                                    <span class="err-msg" id="mob-err-sinmessage" style="
+                                    top: 3rem;
+                                    font-size: 0.8rem;
+                                    text-align: center;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    transition: all 0.6s ease-in-out;
+                                    "></span>
+                                    <div class="input-area">
+                                        <label for="first-name">Email</label><br/>
+                                        <input type="email" class="input-field"  id="mob-sinemail" />
+                                    </div>
+                            
+                                    <div class="input-area">
+                                        <label for="first-name">Password</label><br/>
+                                        <input type="password" class="input-field"  id="mob-sinpassword" /><br />
+                                    </div>
+
+                                 <button type="submit" class="mob-subtn" id="mob-signin-btn"><i class="fas fa-arrow-right"></i></button>
+                                </form>
+                            <h4 class="active-form-txt">SignIn</h4>
+                            <button class="tobe-active mob-signup-make-active">SignUp</button>
+
+                            <div style="text-align: right;padding: 1rem">
+                                      <a href="{% url 'request-reset-password' %}" class="reset-link">
+                                        Forgot Password ?
+                                    </a>                                      
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -155,6 +273,7 @@
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{% static 'marketing/js/joinus.js' %}"></script>
+     <script src="{% static 'marketing/js/mob-joinus.js' %}"></script>
     </body>
 
 

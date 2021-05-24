@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if verified_email %}
+        <title>Email Verified </title>
+    {% else %}
+        <title>Verification Token Expired </title>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'users\verify_email.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Orelega+One&family=Roboto+Slab:wght@700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/784b66feb8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <main>
+            <div class="email-verification-area">
+                <div class="email-verify-area-body">
+                    {% if verified_email %}
+                        <h4>Your Email has been Verified Successfully!</h4>
+                        <a href="{% url 'account' %}"><button class="action-btn">ok</button></a>
+                    {% else %}
+                        <h4>Your Email Verification link has been expired please request for new one!</h4>
+                        <a href="{% url 'account' %}"><button class="action-btn">Request Now</button></a>
+                    {% endif %}
+                </div>
+            </div>
+    </main>
+
+
+</body>
+</html>

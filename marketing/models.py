@@ -18,6 +18,19 @@ CAMPAIGN_STATUS_CHOICES = ((1, 'Running'), (2, 'Stoped'), (3, 'Terminated'))
 
 PLAT_FORM_TYPE = ((0, 'Serch Engine'), (1, 'SocialMedia'))
 
+GET_IN_TOUCH_CHOICES = ((0, 'Pending'),(1,'Proccessing'),(2,'Resolved'))
+
+
+class GetInTouch(models.Model):
+    ID = models.CharField(
+        auto_created=True, primary_key=True, max_length=255, )
+    email = models.EmailField(default='your@email.com')
+    status = models.IntegerField(default=0, choices=GET_IN_TOUCH_CHOICES)
+
+
+    def __str__(self):
+        return f'{self.status}-->{self.email}'
+
 class MarketingPlatform(models.Model):
     ID = models.IntegerField(primary_key=True, auto_created=True)
     platform_type = models.IntegerField(default=1, choices=PLAT_FORM_TYPE)
@@ -28,6 +41,7 @@ class MarketingPlatform(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
 
 
 class CampaignType(models.Model):
@@ -72,8 +86,8 @@ class Leads(models.Model):
     campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE)
     first_name = models.CharField(null=True, blank=True, max_length=255)
     last_name = models.CharField(null=True, blank=True, max_length=255)
-    email = models.EmailField(_('email address'))
-    phone_number = PhoneNumberField(unique=True, default='+44')
+    email = models.EmailField(_('email address'), unique=False)
+    phone_number = PhoneNumberField(unique=False, default='+44')
 
     def __str__(self):
         return f'{self.first_name} {self.last_name} of Campaign {self.campaign}'

@@ -1,8 +1,9 @@
-from .models import Goals
+import uuid
 
+def generate_unique_id(model):
+	unique_id = uuid.uuid4()
+	has_model = model.objects.filter(ID=unique_id).exists()
+	if has_model:
+		return generate_unique_id(model)
+	return unique_id
 
-def generate_unique_id():
-    most_Recent_goal = Goals.objects.all().order_by('-created_at')
-    if len(most_Recent_goal) > 0:
-        return most_Recent_goal[0]._id + 1
-    return 1

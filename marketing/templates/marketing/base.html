@@ -1,0 +1,198 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block seosection %}{% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" type="image/icon" href="{% static 'marketing/images/favicon.ico' %}"/>
+        <link rel="stylesheet" href="{% static 'marketing/css/base.css' %}">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&family=Roboto+Slab:wght@700&family=Fredoka+One&family=Pacifico&family=Nosifer&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/784b66feb8.js" crossorigin="anonymous"></script>
+        {% block stylesheets %}{% endblock %}
+    </head>
+
+    <body >
+        <nav>
+            <div class="mobile-nav">
+                <button class="close-nav-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <ul class="mobile-nav-list">
+
+                    <li class="mobile-nav-item">
+                        <a href="{% url 'home' %}">
+                              <div class="icon-and-item">
+                                <button>
+                                    <i class="fas fa-home"></i>
+                                </button>
+                                <h4>Home</h4>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="mobile-nav-item">
+                        <a href="{% url 'services' %}">
+                            <div class="icon-and-item">
+                                <button>
+                                    <i class="fab fa-servicestack"></i>
+                                </button>
+                                <h4>Services</h4>
+                            </div>
+                            
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="{% url 'pricing' %}">
+                            <div class="icon-and-item">
+                                <button>
+                                    <i class="fas fa-pound-sign"></i>
+                                </button>
+                                <h4>Pricing</h4>
+                            </div>
+                            
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'dashboard' %}">
+                              <div class="icon-and-item">
+                                <button>
+                                    <i class="fas fa-rocket"></i>
+                                </button>
+                                <h4>dashbord <i class="fas fa-arrow-right"></i></h4>
+                            </div>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'joinus' %}">
+                              <div class="icon-and-item">
+                                <button>
+                                    <i class="fas fa-rocket"></i>
+                                </button>
+                                <h4>Get Stared</h4>
+                            </div>
+                        </a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+            <div class="top-nav">
+                <div class="nav-item">
+                    <div class="nav-area">
+                       <img src="{% static 'marketing/images/acenmark.png' %}" class="brand-logo">
+                    </div>
+                </div>
+                <div class="nav-area center-area">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="{% url 'services' %}">
+                                <h4 class="nav-item-name">Services</h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'pricing' %}">
+                                <h4 class="nav-item-name">Pricing</h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-area right-area">
+                    <div class="get-started">
+                        <img src="{% static 'marketing/images/uk.png' %}" class="country-flag">
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'dashboard' %}" class="join-us-link"><button>
+                                dashbord <i class="fas fa-arrow-right"></i>
+                        </button></a>
+                        {% else %}
+                        <a href="{% url 'joinus' %}" class="join-us-link"><button>
+                                Get Started
+                        </button></a>
+                        {% endif %}
+                        <button class="hamburger-btn">
+                                <i class="fas fa-bars"></i>
+                        </button>
+                    </div>               
+                </div>
+
+            </div>
+        </nav>
+        <main id="main">
+            {% block mainContent %}{% endblock %}
+        </main>
+            <img src="{% static 'marketing/images/wave.svg' %}" class="wave">
+        <footer>
+            <div class="footer-area">
+                <div class="foo-area comapny-moto">
+                    <div>
+                        <h2 class="brand-name-mini">AceMark</h2>
+                        <span class="comapny-moto-txt">
+                            We help businesses located in United Kingdon to grow and evolve, by designing a
+                            digital marketing system for their businesses.
+                        </span>
+                        <div class="social-meida-links">
+                            <a href="https://www.facebook.com/acenmarketers/" target="_blank">
+                                <button class="social-media-btn">
+                                    <i class="fab fa-facebook"></i>
+                                </button>
+                            </a>
+                            <a href="https://twitter.com/AcenMark3" target="_blank">
+                                <button class="social-media-btn">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+                            </a>
+                            <a href="https://www.instagram.com/_acenmark_/" target="_blank">
+                                <button class="social-media-btn">
+                                    <i class="fab fa-instagram"></i>
+                                </button>
+                            </a>
+                            <a href="https://www.linkedin.com/company/acenmark/" target="_blank">
+                                <button class="social-media-btn">
+                                    <i class="fab fa-linkedin"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="foo-area produts">
+                    
+                    <ul class="products-list">
+                        <h4 class="foo-area-name">Products</h4>
+                        <li class="product">
+                            <a href="{% static 'services' %}">
+                                Service
+                            </a>
+                        </li>
+                        <li class="product">
+                            <a href="{% static 'pricing' %}">
+                                Pricing
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+                <div class="foo-area contact-infos">
+                    <h4 class="foo-area-name">ContactUs</h4>
+                    <div class="company-info email-info">
+                        <button class="info-icon-btn"><i class="fas fa-envelope"></i></button>
+                        <h4 class="info email-address">team@acemark.com</h4>
+                    </div>
+                    <!-- <div class="company-info phone-info">
+                        <button class="info-icon-btn"><i class="fas fa-phone"></i></button>
+                        <h4 class="info mobile-number">+44 7747 963852</h4>
+                    </div> -->
+                </div>
+            </div>
+        </footer>
+        {% block Scripts %}{% endblock %}
+        <script type="text/javascript" src="{% static 'marketing/js/base.js' %}"></script>
+        
+
+    </body>
+
+
+
+
+</html>

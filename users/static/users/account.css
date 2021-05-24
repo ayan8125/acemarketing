@@ -1,0 +1,660 @@
+.acc-main {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 70% 30%;
+	grid-gap: 1rem;
+
+}
+
+.account-info {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1rem;
+
+}
+
+.account {
+	width: 45%;
+	background: #fff;
+    box-shadow: 0 0 1rem #071f38;
+    padding: 0.5rem;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    margin: 0.5rem;
+}
+
+.head-edit-btn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.2rem 0.5rem;
+}
+
+
+.head-edit-btn h1{
+	font-family: 'Fredoka One',serif;
+	color: #071f38;
+}
+
+.head-edit-btn button {
+	border: none;
+	background: #fff;
+	
+	cursor: pointer;
+	border-radius: 50%;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	color: #071f38;
+	transition: all 0.5s ease-in-out;
+}
+
+
+.head-edit-btn button:hover {
+	box-shadow: 0 0 1rem #000;
+	cursor: pointer;
+}
+
+.profile-img {
+	text-align: center;
+	position: relative;
+}
+
+.profile-img img{
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+}
+
+
+.upload-btn {
+	border:none;
+	background: #fff;
+	color: #000;
+	border-radius: 100%;
+	position: absolute;
+    top: 4.4rem;
+    left: 50%;
+    box-shadow: 0 0 1rem #000;
+    transform: translateX(-50%);
+    cursor: pointer;
+
+   }
+
+
+.info-area {
+	display: flex;
+	/*justify-content: center;*/
+	align-items: center;
+	padding: 0.5rem;
+}
+.info-value-area {
+	margin-left: 0.5rem;
+	color: #071f38;
+	font-family: 'Roboto Slab', serif;
+
+}
+
+.info-btn-area {
+	border: none;
+	background: none;
+	color: #071f38;
+	font-size: 1rem;
+
+}
+
+ .value-area h4 {
+ 	color: #071f38;
+	font-family: 'Roboto Slab', serif;
+	font-weight: bold;
+ }
+
+
+.value-area button {
+	border-radius: 0.5rem;
+	background: #071f38;
+	color: #fff;
+	cursor: pointer;
+	padding: 0.5rem 1rem;
+	border: none;
+	font-size: 0.8rem;
+	font-family: 'Roboto Slab',serif;
+
+}
+
+
+.value-area button:hover{
+	box-shadow: 0 0 1rem #000;
+}
+
+.value-area {
+	padding: 0.2rem;
+}
+
+.user-email {
+	font-size: 0.9rem;
+}
+
+
+.user-basic-details, .business-basic-details  {
+	position: relative;
+}
+
+
+.user-detail , .user-detail-edit-form, .business-detail, .business-detail-edit-form {
+	transition: all 0.5s ease-in-out;
+	position: absolute;
+}
+
+.profile-info,.business-infos  {
+	height: 33rem;
+	position: relative;
+}
+
+.user-detail, .business-detail {
+	left: -30rem
+}
+
+.show-info .user-detail, .show-business-info .business-detail {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.user-detail-edit-form, .business-detail-edit-form{
+	right: -250%;
+}
+
+.show-edit-info-form .user-detail-edit-form, .show-business-edit-form .business-detail-edit-form {
+	right: 50%;
+	transform: translateX(50%);
+
+}
+
+
+.input-field-area{
+	    background: #fff;
+    border: 2px solid #fff;
+    margin: 1.8rem auto;
+    padding: 0.5rem 0.2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem;
+    position: relative;
+    display: flex;
+}
+
+.input-field-area input {
+	border: none;
+	background: none;
+	font-family: 'Fredoka One', serif;
+	outline: none;
+}
+
+
+.input-field-area button {
+	outline: none;
+	background: none;
+	cursor: pointer;
+	color: #071f38;
+	border: none;
+}
+
+.err-msg {
+	position: absolute;
+    top: 2.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: crimson;
+    font-family: 'Roboto Slab';
+}
+
+
+.submit-business-btn, .submit-btn {
+	float: right;
+    background: #071f38;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Roboto Slab';
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+
+.submit-business-btn:hover, .submit-btn:hover {
+	box-shadow: 0 0 1rem #000;
+}
+
+
+.business-info {
+	padding: 0;
+}
+
+
+.city-post-code {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+
+.checkbox-input-field-area {
+	display: flex;
+	align-items: center;
+	margin-top: -1rem;
+}
+
+.checkbox-input-field-area h4 {
+	font-size: 0.7rem;
+	font-family: 'Fredoka One', serif;
+
+}
+
+.city-postcode-area, .country-section-area {
+	display: flex;
+	margin-top: -2rem;
+}
+
+.city-postcode-area .input-field-area, .country-section-area .input-field-area {
+	width: 5rem;
+	    overflow-x: hidden;
+    position: unset;
+    cursor: pointer;
+}
+
+
+.address-area {
+	margin-top: -0.5rem;
+}
+
+
+#sector-list {
+	position: absolute;
+    top: 7rem;
+    z-index: 1;
+    box-shadow: 0 0 1rem #000;
+    background: #fff;
+    border-radius: 0.2rem;
+    list-style: none;
+    padding: 0.5rem;
+    overflow-y: scroll;
+    height: 0;
+    transition: all 0.5s ease-in-out;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.country-section-area .sector-area:hover >  #sector-list {
+	height: 5rem;
+	visibility: visible;
+	pointer-events: initial;
+}
+
+#country-list {
+	position: absolute;
+    right: -2rem;
+    top: 7rem;
+    z-index: 1;
+    box-shadow: 0 0 1rem #000;
+    background: #fff;
+    border-radius: 0.2rem;
+    list-style: none;
+    padding: 0.5rem;
+    overflow-y: scroll;
+    height: 0;
+    transition: all 0.5s ease-in-out;
+     visibility: hidden;
+    pointer-events: none;
+}
+
+
+.country-section-area .country-area:hover >  #country-list {
+	height: 5rem;
+	visibility: visible;
+	pointer-events: initial;
+}
+
+#country-list li, #sector-list li {
+	font-weight: bold;
+	font-family: 'Roboto Slab',serif;
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+
+
+.web-area{
+	margin-top: -0.5rem;
+}
+
+.city-postcode-area .input-field-area {
+	/*position: relative;*/
+}
+
+.business-goal, .business-usps {
+	background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem #000;
+    padding: 0.1rem 0.2rem;
+    margin: 1rem 0;
+}
+
+
+.input-field-goal,  .input-field-usp{
+  background: #fff;
+  box-shadow: 0 0 1rem #000;
+  border-radius: 0.5rem 0 0 0.5rem;
+  height: 5rem;
+}
+
+.input-field-goal textarea, .input-field-usp textarea {
+  background: none;
+  height: 100%;
+  border:none;
+  outline: none;
+  font-weight: bold;
+  font-family: 'Fredoka One', serif;
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+.input-field-goal, .input-field-usp {
+  display: flex;
+}
+
+.input-field-goal button,  .input-field-usp button {
+  background: none;
+  border:none;
+  outline: none;
+  color: #071f38;
+  font-size: 2rem;
+}
+
+.add-goal-area, .add-usp-area{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.add-goal-btn,.add-usp-btn {
+  background: #071f38;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  border: none;
+  cursor: pointer;
+}
+
+.goal-txt, .usp-txt {
+	font-weight: bold;
+    font-family: 'Fredoka One';
+    color: #071f38;
+}
+
+.user-wallet {
+	margin: 0.2rem;
+	position: relative;
+}
+
+
+.wallet-img {
+    width: 150%;
+    margin-left: -6rem;
+}
+
+.wallet-info {
+	    position: absolute;
+    top: 7rem;
+}
+
+
+.wallet-info h2 {
+	    color: #fff;
+    font-family: 'Fredoka One';
+    font-size: 2.5rem;
+}
+
+.wallet-info h5 {
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Fredoka One';
+    margin-top: -2rem;
+}
+.addmoneybtn {
+	background: #62b0da;
+	color: #071f38;
+	border-radius: 2rem;
+	border: none;padding: 0.5rem 1rem;
+	font-weight: bold;
+	font-family: 'Fredoka One', serif;
+	outline: none;
+	cursor: pointer;
+
+
+}
+
+
+.addmoneybtn:hover {
+	box-shadow: 0 0 1rem #62b0da;
+}
+
+
+.wall-alert {
+	font-family: 'Fredoka One',serif;
+	color: #fff;
+	font-size: 0.7rem;
+}
+
+.acc-wallet {
+	width: 20rem;
+	background: #fff;
+	border-radius: 1rem;
+	box-shadow: 0 0 1rem #000;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0.5rem;
+	transition: all 0.5s ease-in-out;
+	visibility: hidden;
+	/*pointer-events: none;*/
+}
+
+.show-add-amoney-form {
+	top: 4rem;
+	visibility: visible;
+	/*pointer-events: initial;*/
+}
+
+
+.money-field {
+	display: grid;
+    grid-template-columns: 20% 80%;
+    height: 5rem;
+    border-bottom: 2px solid #071f38;
+}
+
+.money-field button {
+	    font-size: 3rem;
+    border: none;
+    outline: none;
+    background: none;
+    color: #071f38;
+}
+
+
+.money-field input {
+	border: none;
+    background: none;
+    outline: none;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Fredoka One';
+    color: #071f38;
+}
+
+
+.add-money-btn {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background: #071f38;
+    color: #fff;
+    border: none;
+    width: 95%;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Roboto Slab';
+    cursor: pointer;
+}
+
+.money-err-msg {
+	font-weight: bold;
+	font-family: 'Fredoka One', serif;
+	color: crimson;
+}
+
+
+
+.close-wall-btn {
+	float: right;
+    border: none;
+    background: none;
+    color: crimson;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
+.status-div {
+	position: absolute;
+	visibility: hidden;
+	top: 0;
+	width: 14rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	background: #fff;
+	box-shadow: 0 0 1rem #000;
+	transition: all 0.5s ease-in-out;
+	pointer-events: none;
+	left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.close-btn-status {
+	border: none;
+	background: none;
+	color: crimson;
+	font-size: 1.2rem;
+	float: right;
+}
+
+
+.show-status-div {
+	top: 1rem;
+	visibility: visible;
+	pointer-events: initial;
+}
+
+
+#status-msg , .status-msgs{
+	font-weight: bold;
+	font-family: 'Roboto Slab',serif;
+
+}
+
+
+.message-modal {
+	position: absolute;
+	top: -200%;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #fff;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	width: 12rem;
+	z-index: 4;
+	box-shadow: 0 0 1rem #000;
+	transition: all 0.5s ease-in-out;
+}
+
+.show-message-modal {
+	top: 1rem;
+}
+
+.message-modal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mess-body h4 {
+	font-family: 'Fredoka One',serif;
+	color: #071f38;
+}
+
+.mess-modal {
+	width: 7rem;
+	    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.close-btn {
+	float: right;
+	background: #071f38;
+	color: #fff;
+	font-family: 'Fredoka One',serif;
+	padding: 0.5rem 1rem;
+	border-radius: 0.2rem;
+	border: none;
+	cursor: pointer;
+	margin: 1rem 0.2rem;
+
+}
+
+
+@media screen and (max-width: 600px) {
+	.acc-main {
+	    display: block;
+	}
+	
+	.account {
+    	width: 100%;
+
+
+	}
+
+	.wallet-info {
+    	left: 2rem;
+	}
+
+	.wallet-img {
+    	margin-left: -4rem;
+	}
+	.account {
+    	box-shadow: none;
+	}
+}
+
+
+
+@media screen and (max-width: 350px)  {
+	.account-info {
+	    padding: 0.7rem;
+	}
+	.wallet-img {
+    margin-left: -2rem;
+	}
+	.wallet-info {
+    left: 3rem;
+	}
+	
+	.value-area h4 {
+    	font-size: 0.8rem;
+	}
+	.status-div {
+
+	width: 12rem;
+
+	}
+}

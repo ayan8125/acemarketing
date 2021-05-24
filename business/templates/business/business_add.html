@@ -1,8 +1,14 @@
 {% load static %}
 <html>
     <head>
-        <title>Add YOUR Business</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add YOUR Business | AcenMark</title>
         <link rel="stylesheet" href="{% static 'marketing/css/loader.css' %}"></link>
+        <link rel="stylesheet" type="text/css" href="{% static 'business/css/business.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Orelega+One&family=Roboto+Slab:wght@700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/784b66feb8.js" crossorigin="anonymous"></script>
     </head>
     
     <body>
@@ -17,11 +23,100 @@
                     <div class="sk-chase-dot"></div>
                 </div>
             </div>
-            <form method="POST" id="business-address-form">
-                {% csrf_token %}
-                {{ BusinessForm }}
-                <button class="submit-btn" >Submit</button>
-            </form>
+
+
+            <div class="business-details-form show-business-detail-form">
+                
+                <div class="business-area b-about-area">
+                    <div class="bussiness-form-area">
+                        <form class="business-form" id="business-detail-form" method="POST">
+                            <h3>Business Details</h3>
+                            <div class="status-div user-business-detail-status" style="display: none;">
+                                <button class="close-btn-status close-btn-user-business-detail-status"><i class="fas fa-times"></i></button>
+                                <span id="user-business-detail-status-msg" class="status-msgs"></span>
+                            </div>
+                            {% csrf_token %}
+                             <div class="input-field-area">
+                                 <button><i class="fas fa-building"></i></button>
+                                 <input type="text" name="business-name" id="id_name" placeholder="Business name" autocomplete="off">
+                                 <span class="err-msg" id="err-business-name"></span>
+                             </div>
+    
+                             <div class="input-field-area sector-area">
+                                 <button><i class="fas fa-bezier-curve"></i></button>
+                                 <input type="text" name="sector" id="id_sector" placeholder="sector" readonly autocomplete="off">
+                                 <ul id="sector-list"></ul>
+                             </div>
+                             
+
+                       
+                   
+                            <div class="input-field-area web-area">
+                                 <button><i class="fas fa-globe"></i></button>
+                                 <input type="text" name="website" id="id_website"  placeholder="www.mybusiness.com" autocomplete="off">
+                                 <span class="err-msg" id="err-website"></span>
+                             </div>
+                            <div class="checkbox-input-field-area">
+                                 <h4>Business  runs online or has a website </h4>
+                                 <input type="checkbox" name="runs-online" id="id_runs_online" value="False" >
+                             </div>
+                             <div class="checkbox-input-field-area">
+                               <h4>Business has local store </h4>
+                                 <input type="checkbox" name="runs_locally" id="id_runs_locally"value="False">
+
+                             </div>
+                             <button class="next-btn">Next</button>
+                        </form>
+                    </div>
+                    <div class="bussiness-ills-area">
+                        <img src="{% static 'business/images/building.svg' %}" class="buss-illus" alt="business-detial">
+                    </div>
+                </div>
+
+                <div class="business-area b-address-area">
+                    <div class="bussiness-ills-area">
+                        <img src="{% static 'business/images/globe.svg' %}" class="buss-illus" alt="business-detial">
+                    </div>
+                    <div class="bussiness-form-area">
+                        <form class="business-form" id="business-address-form" method="POST">
+                            <h3>Business Address</h3>
+                            <div class="input-field-area country-area">
+                                 <button><i class="fas fa-flag"></i></button>
+                                 <input type="text" name="country" id="id_country" placeholder="country" readonly autocomplete="off" >
+                                 <ul id="country-list"></ul>
+                             </div>
+                         
+                             <div class="input-field-area address-area">
+                                 <button><i class="fas fa-map-marked"></i></button>
+                                 <input type="text" name="address" id="id_address" placeholder="address" autocomplete="off" >
+                                 <span class="err-msg" id="err-address"></span>
+                             </div>
+                    
+                                 <div class="input-field-area">
+                                     <button><i class="fas fa-map-marker-alt"></i></button>
+                                     <input type="text" name="city" id="id_city"  placeholder="city" autocomplete="off" >
+                                     <span class="err-msg" id="err-city"></span>
+                                 </div>
+
+                                 <div class="input-field-area">
+                                     <button><i class="fas fa-map-pin"></i></button>
+                                     <input type="text" name="postcode" id="id_postcode"  placeholder="postcode" autocomplete="off" >
+                                     <span class="err-msg" id="err-postcode"></span>
+                                 </div>
+                            <div class="actions-btns">
+                             <button  class="prev-btn">Prev</button>  
+
+                            <button type="submit" class="submit-business-btn">Submit</button>                                 
+                            </div>
+                           
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+              
         </div>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -1,7 +1,10 @@
 {% load static %}
 <html>
     <head>
-        <title>Add Goals For Bussines | AceMarketing</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Goals For Bussines | AcenMark</title>
         <link rel="stylesheet" href="{% static 'business/css/goals.css' %}" />
         <link rel="stylesheet" href="{% static 'marketing/css/loader.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&family=Nosifer&display=swap" rel="stylesheet">
@@ -36,15 +39,14 @@
                 <img src="{% static 'marketing/images/lauch.svg' %}" alt="">
             </div>
         </div>
- 
+ {% csrf_token %}
         <div class="goals">
             <div class="goal">
                 <div class="goal-illustration">
-                    <img src="{% static 'marketing/images/data.svg' %}" alt="">
+                    <img src="{% static 'business/images/phonecall.svg' %}" alt="">
                 </div>
                 <div class="goal-area">
-                    {% csrf_token %}
-                    <input type="text" value="Get Phone Calls & Phone numbers, and Email, etc" hidden>
+                    <input type="text" value="Get Phone Calls & Phone numbers, and Email, etc" hidden >
                     <div class="goal-info">
                         <h4 class="gaol-name">Get Phone Calls & Phone numbers, and Email, etc</h4>
                         <span>Get Customer calls withs ads that feature your phone number.<br>
@@ -55,7 +57,7 @@
 
             <div class="goal">
                 <div class="goal-illustration">
-                    <img src="{% static 'marketing/images/data.svg' %}" alt="">
+                    <img src="{% static 'business/images/webtraffic.svg' %}" alt="">
                 </div>
                 <div class="goal-area">
                     <input type="text" value="Web Traffic" hidden>
@@ -70,7 +72,7 @@
 
             <div class="goal">
                 <div class="goal-illustration">
-                    <img src="{% static 'marketing/images/data.svg' %}" alt="">
+                    <img src="{% static 'business/images/store.svg' %}" alt="">
                 </div>
                 <div class="goal-area">
                     <input type="text" value="Local Store Visits" hidden>
@@ -86,7 +88,7 @@
 
             <div class="goal">
                 <div class="goal-illustration">
-                    <img src="{% static 'marketing/images/data.svg' %}" alt="">
+                    <img src="{% static 'business/images/email-sms-mark.svg' %}" alt="">
                 </div>
                 <div class="goal-area">
                     <input type="text" value="Email & SMS Marketing" hidden>
@@ -99,7 +101,7 @@
 
             <div class="goal">
                 <div class="goal-illustration">
-                    <img src="{% static 'marketing/images/data.svg' %}" alt="">
+                    <img src="{% static 'business/images/brandawr.svg' %}" alt="">
                 </div>
                 <div class="goal-area">
                     <input type="text" value="Brand Awarness & Reach" hidden>

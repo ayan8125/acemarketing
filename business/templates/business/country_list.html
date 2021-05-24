@@ -1,0 +1,7 @@
+{% for country in countries %}
+
+	<li class="country" onclick="changecountry('{{country.0}}', '{{country.1}}')">
+		{{country.1}}
+	</li>
+	<hr/>
+{% endfor %}
