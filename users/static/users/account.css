@@ -643,6 +643,13 @@
 	width: 85%;
     font-size: 1rem;
 	}
+
+#country-list {
+    right: unset;
+    top: 7rem;
+
+}
+
 }
 
 
