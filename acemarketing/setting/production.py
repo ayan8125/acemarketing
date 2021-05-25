@@ -13,7 +13,7 @@ SECRET_KEY = config['SECRET_KEY']
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['18.133.243.191','www.acenmark.co.uk', 'acenmark.co.uk']
+ALLOWED_HOSTS = ['35.177.222.122','www.acenmark.co.uk', 'acenmark.co.uk']
 
 
 
