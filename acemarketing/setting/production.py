@@ -11,7 +11,7 @@ with open('/etc/config.json') as config_file:
 SECRET_KEY = config['SECRET_KEY']
 
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['35.177.222.122','www.acenmark.co.uk', 'acenmark.co.uk']
 
