@@ -13,7 +13,7 @@ SECRET_KEY = config['SECRET_KEY']
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['52.56.245.185','www.acenmark.co.uk', 'acenmark.co.uk']
+ALLOWED_HOSTS = ['18.133.243.191','www.acenmark.co.uk', 'acenmark.co.uk']
 
 
 
@@ -27,7 +27,7 @@ DATABASES = {
     }
 }
 
-DOMAIN = 'https://www.acenmark.co.uk'
+DOMAIN = 'https://acenmark.co.uk'
 
 STRIPE_PUBLIC_KEY = config['STRIPE_PUBLIC_KEY']
 STRIPE_KEY_SECRET = config['STRIPE_KEY_SECRET']
