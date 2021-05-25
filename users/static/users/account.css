@@ -634,6 +634,15 @@
 	.account {
     	box-shadow: none;
 	}
+	.acc-wallet {
+		width: 14rem;
+		z-index: 2;
+	} 
+
+	.add-money-btn {
+	width: 85%;
+    font-size: 1rem;
+	}
 }
 
 
