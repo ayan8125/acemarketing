@@ -58,3 +58,5 @@ STATICFILES_STORAGE = 'acemarketing.custom_storages.StaticStorage'
 MEDIAFILES_LOCATION = 'media'
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 DEFAULT_FILE_STORAGE = 'acemarketing.custom_storages.MediaStorage'
+
+SITE_ID = 1

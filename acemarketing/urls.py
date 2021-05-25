@@ -18,6 +18,15 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from marketing import views
+from django.contrib.sitemaps.views import sitemap
+
+from marketing.sitemaps import StaticViewSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+}
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +45,10 @@ urlpatterns = [
     path('reset-password/<str:uidb64>/<str:token>/',
          views.ResetPassword.as_view(), name='reset-password'),
     path('test/', views.test, name="test"),
+
+    # sitemap urls
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap')
 ]
 
 
