@@ -27,7 +27,7 @@ DATABASES = {
     }
 }
 
-DOMAIN = 'https://acenmark.co.uk'
+DOMAIN = 'https://www.acenmark.co.uk'
 
 STRIPE_PUBLIC_KEY = config['STRIPE_PUBLIC_KEY']
 STRIPE_KEY_SECRET = config['STRIPE_KEY_SECRET']
