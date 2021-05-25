@@ -1,7 +1,7 @@
 import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
-
+from django.conf import settings
 
 
 def sendMail():
@@ -11,7 +11,7 @@ def sendMail():
     subject='Testing Integration',
     html_content='<strong>i will be fucking rich</strong>')
     try:
-        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
         response = sg.send(message)
         print(response.status_code)
         print(response.body)
@@ -34,9 +34,8 @@ def SendDynamic(from_email, to_email, template_id, dynamic_data):
     message.template_id = template_id
     # create our sendgrid client object, pass it our key, then send and return our response objects
     try:
-        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
         response = sg.send(message)
     except Exception as e:
-        pass
-    print(response.status_code)
+        response = 500
     return response.status_code
