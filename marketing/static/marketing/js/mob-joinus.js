@@ -189,7 +189,7 @@ mob_email.addEventListener("blur", function() {
 
 mob_password.addEventListener("blur", function() {
     if (mob_password.value != ''){
-        if (mob_password.value.length > 8){
+        if (mob_password.value.length >= 8){
             mob_password_error.innerHTML = '';
             mob_passwordValid = true
             
