@@ -306,31 +306,42 @@ phonenumber.addEventListener("blur", function() {
     }
 })
 
+try {
+       password.addEventListener("keyup", function(){
+        let pass = document.getElementById("password").value;
+        checkStrength(pass);
+    }); 
+}
+catch (err) {
 
-password.addEventListener("keyup", function(){
-    let pass = document.getElementById("password").value;
-    checkStrength(pass);
-});
+}
 
-signup_toggle_btn.addEventListener('click', function() {
-    makeactive(signup_toggle_btn,signin_toggle_btn)
-})
+try {
+      signup_toggle_btn.addEventListener('click', function() {
+        makeactive(signup_toggle_btn,signin_toggle_btn)
+    })
 
-signin_toggle_btn.addEventListener('click', function() {
-    makeactive(signin_toggle_btn,signup_toggle_btn)
-})
+    signin_toggle_btn.addEventListener('click', function() {
+        makeactive(signin_toggle_btn,signup_toggle_btn)
+    })
 
 
 
-signupbtn.addEventListener('click', function(e) {
-    e.preventDefault()
-    submitSignupForm()
-})
+    signupbtn.addEventListener('click', function(e) {
+        e.preventDefault()
+        submitSignupForm()
+    })
 
-signinbtn.addEventListener('click', function(e) {
-    e.preventDefault()
-    submitSigninForm()
-})
+    signinbtn.addEventListener('click', function(e) {
+        e.preventDefault()
+        submitSigninForm()
+    })
+  
+}
+
+catch (err) {
+    
+}
 
 
 

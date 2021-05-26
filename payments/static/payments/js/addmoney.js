@@ -96,11 +96,16 @@ money.addEventListener('blur', function(){
       }
     }
 })
+try {
+    p_addmoney.addEventListener('click', function() {
+    acc_wallet.classList.toggle('show-add-amoney-form')
+  })
 
-p_addmoney.addEventListener('click', function() {
-  acc_wallet.classList.toggle('show-add-amoney-form')
-})
+  close_wall_btn.addEventListener('click', function() {
+    acc_wallet.classList.toggle('show-add-amoney-form')
+  })
+}
 
-close_wall_btn.addEventListener('click', function() {
-  acc_wallet.classList.toggle('show-add-amoney-form')
-})
+catch {
+  
+}

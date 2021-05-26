@@ -36,7 +36,7 @@ let validPostCode = false
 
 
 function submitBusinessForm() {
-    // console.log(validName, validWebsite, validAddress, validCity, validPostCode)
+    
     if(validName && validWebsite && validAddress && validCity && validPostCode){
         loader1.style.display = 'block'
         businessform.style.filter = 'blur(6px)'
@@ -185,23 +185,34 @@ close_btn_user_business_status.addEventListener('click', function(e){
     user_business_status_div.classList.remove('show-status-div')
 })
 
+try {
+       business_detail_form.addEventListener('submit', function(e){
+        e.preventDefault()
+        if (validName && validWebsite){
+            
+            buiness_content_area.classList.remove('show-business-detail-form')
+            buiness_content_area.classList.add('show-business-address-form')
+        }
+    }) 
 
-business_detail_form.addEventListener('submit', function(e){
-    e.preventDefault()
-    if (validName && validWebsite){
+
+    prev_btn.addEventListener('click', function(e){
+        e.preventDefault()
+        buiness_content_area.classList.remove('show-business-address-form')
+        buiness_content_area.classList.add('show-business-detail-form')
         
-        buiness_content_area.classList.remove('show-business-detail-form')
-        buiness_content_area.classList.add('show-business-address-form')
-    }
-})
 
-prev_btn.addEventListener('click', function(e){
-    e.preventDefault()
-    buiness_content_area.classList.remove('show-business-address-form')
-    buiness_content_area.classList.add('show-business-detail-form')
-    
+    })
 
-})
+
+}
+
+catch (err) {
+
+}
+
+
+
 
 
 

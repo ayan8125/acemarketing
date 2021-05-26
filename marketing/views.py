@@ -67,7 +67,6 @@ def Signin(request):
         if user is not None:
             login(request, user)
             has_business = Business.objects.filter(user=user).exists()
-            print(has_business)
             if has_business == False:
                 data['is_new_user'] = 1
             data['success'] = 1

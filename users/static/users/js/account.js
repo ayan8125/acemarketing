@@ -241,10 +241,16 @@ close_btn_user_status.addEventListener('click', function(){
     user_status_div.classList.remove('show-status-div')
 })
 
-verifyEmailbtn.addEventListener('click', function(e){
-    e.preventDefault()
-    SendEmailVerificationlink();
-})
+try {
+     verifyEmailbtn.addEventListener('click', function(e){
+        e.preventDefault()
+        SendEmailVerificationlink();
+    })   
+}
+catch {
+    
+}
+
 
 closebtn.addEventListener('click', function(){
      message_modal.classList.remove('show-message-modal')

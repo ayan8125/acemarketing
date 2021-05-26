@@ -12,7 +12,6 @@ for (var goalindex=0;goalindex<goals.length;goalindex++){
 function addevent(elemt) {
     const input = elemt.getElementsByTagName('input')[0]
     elemt.addEventListener('click', function() {
-        console.log(input)
         if (elemt.classList.contains('selected')) {
             removeA(UserGoals, input.value)
             UserGoals = UserGoals.filter(function(e) { return e !==  input.value})

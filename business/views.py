@@ -37,7 +37,6 @@ class BusinessUspListView(ListView):
     model = USP
 
     def get_context_data(self, **kwargs):
-        print(**kwargs)
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
@@ -60,7 +59,6 @@ class BusinessAdd(LoginRequiredMixin, View):
                 data=request.POST, instance=user_business[0])
         else:
             businessform = BusinessForm(data=request.POST)
-        print(request.POST)
         if businessform.is_valid():
             business = businessform.save(commit=False)
             business.user = request.user

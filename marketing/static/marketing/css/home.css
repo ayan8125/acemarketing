@@ -307,5 +307,8 @@ margin: 2rem 10%;
 	.align-center {
 	    display: block;
 	}
+	.mini-mess {
+    font-size: 0.8rem;
+	}
 
 }

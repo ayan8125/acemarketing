@@ -28,12 +28,25 @@ function submitGetInTouchForm() {
     xmlhttp.send(JSON.stringify(data));
 }
 
-GetIntouchform.addEventListener('submit', function(e) {
-	e.preventDefault();
-	submitGetInTouchForm();
+try {
+    GetIntouchform.addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitGetInTouchForm();
 
-})
+    })  
+}
 
-closebtn.addEventListener('click', function(){
-	minimodal.classList.remove('show-mini-modal')
-})
+catch (err) {
+    console.log('')
+}
+
+
+try {
+   closebtn.addEventListener('click', function(){
+    minimodal.classList.remove('show-mini-modal')
+    }) 
+}
+
+catch (err) {
+
+}

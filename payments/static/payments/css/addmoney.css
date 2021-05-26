@@ -148,7 +148,24 @@ font-size: 0.8rem;
 
 }
 
+.dash-borad {
+	    width: 100%;
+    border-radius: 1re;
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+}
 
+.dash-borad button {
+    margin: 1rem 4rem;
+    background: none;
+    color: #071f38;
+    border-radius: 0;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
 
 @media screen and (max-width: 600px) {
 	body {
@@ -188,6 +205,12 @@ font-size: 0.8rem;
 	.budget-info-list li span {
     font-size: 0.7rem;
 }
+
+.dash-borad button {
+    margin: 1rem 2rem;
+    color: #fff;
+
+	}
 }
 
 @media screen and (max-width: 350px) {

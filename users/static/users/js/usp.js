@@ -25,11 +25,10 @@ function submitUspForm() {
                     uspform.style.filter = 'blur(0px)'
                     if (data.usp_added) {
                         description.value = ''
-                        console.log('added suucessfully')
                         pullusp()
                     }   
                     if (data.invalid_usp) {
-                        console.log('Invlaid usp')
+       
                     }   
 
    
