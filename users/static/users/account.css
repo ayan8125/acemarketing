@@ -458,6 +458,7 @@
 	padding: 0.5rem;
 	transition: all 0.5s ease-in-out;
 	visibility: hidden;
+	z-index: 3;
 	/*pointer-events: none;*/
 }
 

@@ -85,8 +85,8 @@ else{
 
 
 money.addEventListener('blur', function(){
-    if (parseInt(money.value) < 3000 )
-    errmsg.innerHTML = 'You have to add minimum 3k'
+    if (parseInt(money.value) < 1000 )
+    errmsg.innerHTML = 'You have to add minimum 1k'
   else{
       if (parseInt(money.value) > 7000)
         errmsg.innerHTML = 'You can only add 7k maximum in one transaction'
